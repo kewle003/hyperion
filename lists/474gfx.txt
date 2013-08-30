@@ -1,0 +1,457 @@
+Graphics List # 474:
+800: Home teleport circle drawing
+801: Home teleport circle finished
+802: Grab book
+803: Start Teleporting
+804: Outer rim of home port final step
+805: CRASHS CLIENT - UNKNOWN
+806: Training Bow Arrow pullback
+807: Electric chair
+808: Electric chair
+809: Elemental Shield, pulse brown
+810: Elemental Helmet, don't know brown
+811: Elemental Helmet, don't know purple
+	//SKILLCAPES GFX
+812: Fletching Skillcape
+813: Magic Skillcape
+814: Mining  Skillcape
+815: Smithing  Skillcape
+816: Quest cape
+817: Runecrafting  Skillcape
+818: Crafting  Skillcape
+819: Fishing  Skillcape
+820: Construction  Skillcape
+821: Cooking  Skillcape
+822: Woodcutting  Skillcape
+823: Attack  Skillcape
+824: Defence  Skillcape
+825: Farming  Skillcape
+826: Thieving  Skillcape
+827: Slayer Skillcape
+828: Strength  Skillcape
+829: Prayer  Skillcape
+830: Agility Skillcape
+831: Firemaking  Skillcape
+832: Ranged  Skillcape
+833: Hitpoint  Skillcape (male)
+834: Hitpoint Skillcape (female)
+835: Herblore Skillcape
+836: Dragonplatelegs drop model
+837: Walking Troll
+838: Running Troll
+839: Spinning Vines/Bush - Tai bwo wanni cleanup maybe
+840: Spinning Rake head
+841: Dropping dirt
+	//VIAL LOOKS LIKE ECTOPHIAL
+842: Handing over a(n) 'Vial'
+843: Hold up, then put to side 'Vial'
+844: Dump 'Vial' contents on floor
+845: Hold up the empty 'Vial'
+846: Rake, then break the rake top, hold stick up
+847: Rake Stick, moves forward
+848: Flies, flying around head
+849: Bucket, scoops something, then vanishes
+850: Throwing Troll rock throw?
+851: Drunken Dwarf, Backflip
+852: Drunken Dwarf Backflip cont.
+853: Beer drop model
+854: Kebab drop model
+855: Dirt flies into the air
+856: Rolling boulder
+857: Boulder toss
+858: Small white water splash
+859: Rhudolf red nose (EMOTE GFX)
+860: Falling snow
+861: undescribable
+862: Snow crushes and falls
+	//BARBARIAN ASSAULT
+863: Penance Healers poison smog attack
+864: Penance Healers healing smog attack
+865: Penance Rangers hit gfx/endgfx
+866: Penance Rangers projectile
+867: Green Egg explosion
+868: Red Egg explosion
+869: Blue Egg explosion
+870: Penance Queens attack projectile, purple ring
+871: Penance Queens hit gfx/endgfx
+872: Penance Queen hit gfx/endgfx cont.
+873: Green Egg splurt, when bad pickup for collector
+874: Red Egg splurt, when bad pickup for collector
+875: Blue Egg splurt, when bad pickup for collector
+876: Green Egg Explosion / Same as 867
+877: Hot Air Balloon, letting it float away, let it go
+878: Hot Air Balloon, flying
+	//BALLOON INTERFACE GFX
+879: Hot Air Balloon on fire, and falls
+880: Hot Air Balloon fly upwards
+881: Hot Air Balloon floating
+882: Hot Air Balloon flying, then bursts into fire and falls
+883: Yellow Hot Air Balloon fly upwards
+884: Yellow Hot Air Balloon floating
+885: Yellow Hot Air Balloon flying, then bursts into fire and falls
+886: Blue Hot Air Balloon fly upwards
+887: Blue Hot Air Balloon floating
+888: Blue Hot Air Balloon flying, then bursts into fire and falls
+889: Red Hot Air Balloon fly upwards
+890: Red Hot Air Balloon floating
+891: Red Hot Air Balloon flying, then bursts into fire and falls
+892: Orange Hot Air Balloon fly upwards
+893: Orange Hot Air Balloon floating
+894: Orange Hot Air Balloon flying, then bursts into fire and falls
+895: Green Hot Air Balloon fly upwards
+896: Green Hot Air Balloon floating
+897: Green Hot Air Balloon flying, then bursts into fire and falls
+898: Purple Hot Air Balloon fly upwards
+899: Purple Hot Air Balloon floating
+900: Purple Hot Air Balloon flying, then bursts into fire and falls
+901: Pink Hot Air Balloon fly upwards
+902: Pink Hot Air Balloon floating
+903: Pink Hot Air Balloon flying, then bursts into fire and falls
+904: Black Hot Air Balloon fly upwards
+905: Black Hot Air Balloon floating
+906: Black Hot Air Balloon flying, then bursts into fire and falls
+	//HUNTER
+907: Hunter Skillcape Emote
+908: Regular Chinchompa projectile range
+909: Red Chinchompa projectile range
+910: Using a butterfly - Black w/ swirling vortex
+911: Using a butterfly - White w/ swirling vortex
+912: Using a butterfly - Blue w/ swirling vortex
+913: Using a butterfly - Red w/ swirling vortex
+914: Using a butterfly - Black no vortex
+915: Using a butterfly - White no vortex
+916: Using a butterfly - Blue no vortex
+917: Using a butterfly - Red no vortex
+918: Falconry - bird float off a bit
+919: Falconry - bird float off a bit
+920: Falconry - bird float off a bit
+921: Falconry - bird float off a bit
+922: Falconry - bird flying projectile
+923: Falconry - bird landing after good catch
+924: Falconry - bird landing after failed catch
+925: Falconry - bird landing after failed catch
+926: Falconry - bird landing after failed catch
+927: Falconry - bird landing after failed catch
+928: Brown hopping kebbit body
+929: Black hopping kebbit body
+930: Tan hopping kebbit body
+931: White puff of smoke fly upwards
+932: Imp getting caught by imp trap
+933: Pitfall trap
+934: Pitfall trap
+935: Pitfall trap
+936: Pitfall trap
+937: Polar sabre tooth falling into pitfall
+938: Polar sabre tooth jumping over pitfall
+939: Larupia falling into pitfall
+940: Larupia jumping over pitfall
+941: Graahk falling into pitfall
+942: Graahk jumping over pitfall
+943: Rabbit walking/running
+944: Rabbit caught by rabbit snare
+945: Rabbit caught by rabbit snare
+946: Rabbit caught by rabbit snare
+947: Brown hopping kebbit body
+948: Brown hopping kebbit body
+949: Polar kebbit hopping body
+950: Yellow/tan kebbit hopping body
+951: Spiked kebbit hopping body
+952: Dragon Fire Breath / regular
+953: Dragon Fire Breath / darker color
+954: exploding, star looking, dragon, breath
+955: Crossbow bolt shooting
+956: Bird statue
+957: Bird statue
+958: Bird statue
+959: Bird statue
+960: Bird above your head, looks like smaller version of statue
+961: Bird statue
+962: Bird statue, facing South, positioned south
+963: Bird statue, facing North, positioned north
+964: Bird statue, facing North, positioned south
+965: Giant kebbit, hopping, brown
+966: Giant kebbit, standing, brown
+967: Sleeping, zZzZzZ, sleep
+968: UNKNOWN - looks like a rolling pink diamond looking thing
+969: Big blue orb, shrinks downwards
+970: Green projectile
+971: Green projectile endGfx, hit, explosion
+972: Hold up Ghost Speak amulet, then looks like wield it
+973: Hold up undead chicken (green, sick looking)
+974: Puff of black smoke, looks like Egg Exploding in Barbarian Assault
+975: Cool looking implosion, unknown (Maybe Omega egg explosion)
+976: Yellow spike projectile, has a smoke trail
+977: Green Egg projectile, spinning
+978: Red Egg projectile, spinning
+979: Blue Egg projectile, spinning
+980: Omage Egg Projectile, spinning
+981: Confused Birds above head
+982: Looks like a 'bolt of lightning'(it's black) hitting the ground
+983: Looks like, "low alch" but the GFX is black
+984: Black Vortex above head, Spiked black stars floating downwards
+985: Black explosion, looks like a bolt spell hit/endGFX
+986: Black Spiked Star falling
+987: Scared Swarm floating upwards / Harbie bugs
+988: Scared Swarm/Harpie Bugs, GIANT swarm float upwards and expand
+989: Scared Swarm/Harpie Bugs, regular swarm float upwards and expand
+990: Scared Swarm/Harpie Bugs, regular swarm float downwards and shrink
+991: Scared Swarm/Harpie Bugs, GIANT swarm float downwards and shrink
+992: Scared Swarm/Harpie Bugs, float downwards
+993: Small bug/orb float and disappear
+994: Giant Arrow Throw/shot
+995: Giant Arrow projectile
+996: brown gfx, orb looking, unknown
+997: red gfx, orb looking, unknown
+998: Stun/Vulnerability/Enfeeble, player start GFX
+	//BORK?
+999: Green orb(s), big, they fly inwards and shrink
+1000: Green orb(s), big, they just stay there
+1001: Green orb(s), big, looks like it hits a wall?
+1002: Giant red orb with red tentacles coming out ot it
+1003: 2 red orbs on both hand sides, with tentacles coming out of it
+1004: BORK, growing
+1005: BORK, looks like a statue of him breaking
+1006: Yellow orb(s), big, they fly inwards and shrink
+1007: Yellow orb(s), big, they just stay there
+1008: Yellow orb(s), big, looks like it hits a wall?
+1009: 2 purple orbs on both hand sides, with tentacles coming out of it
+1010: Giant purple orb with tentacles coming out of it
+1011: Giant purple orb with tentacles, expands and disapears
+1012: Enchanting a necklace, ISN'T the original one
+1013: Giant red orb with tentacles coming out of it
+1014: Falling Ice shard, penguin quest/island
+1015: Enter penguin suit
+1016: Leave penguin suit
+1017: 2 Ice shard projectiles
+1018: Snow chunks flipping
+1019: Snow particles flipping, looks like someone digging and tossing snow
+1020: Juggling 3 balls, one red, one blue, one green
+1021: UNKNOWN
+1022: Throwing a giant ice ball?
+1023: CRASHS CLIENT - UNKNOWN
+1024: Flying human leg, spinning - Soul's Bane
+1025: UNKNOWN - looks like a pulsating web
+1026: Circular water puddle below feet, pulsating, water drops floating upwards
+1027: Barrelchest Anchor special GFX
+1028: Explosion, with a puff of smoke
+1029: Insects outer body shedding, like Kalphite Queens first form
+1030: An animal, looks like it dies, UNKNOWN
+1031: An animal, looks like it dies, UNKNOWN
+1032: An animal, looks like it dies, UNKNOWN
+1033: An animal, looks like it dies, UNKNOWN
+1034: Dorgshenkan Teleporting, breaking a teleport ORB
+1035: Bouncing red, ball looking thing
+1036: Mithril Grapple, about to shoot
+	//SOMETHING TO DO WITH RUNECRAFTING
+1037: Yellow Orb, with spiky trail, shoots into a piece of paper your holding
+1038: Yellow Orb, runes show above it, then get sucked into it, then disapears
+1039: Rabbit, floats upward slowly, then disapears (Rabbit egg?)
+1040: Blue Easter egg breaks open
+1041: Blue Easter egg breaks open
+1042: Green Easter egg breaks open
+1043: Red Easter egg breaks open
+1044: Pink/Purple Easter egg breaks open
+1045: Yellow  Easter egg breaks open
+1046: UNKNOWN - Can't see it
+1047: Easter Basket by your side
+1048: Brine Sabre, special attack GFX
+1049: Arrow shoots into the ground form a high height, then disapears
+1050: Arrow with purple feathers, pullback GFX
+1051: Arrow with purple feathers, projectile
+1052: Ancient Mace, special attack GFX
+1053: Arrow with purple feathers, UNKNOWN
+1054: Transparent brown orb forms infront of you
+1055: Kalphite Queen first form, outer shell breaking, after death
+1056: Sleeping, zZzZzZzZ, sleep # 2
+1057: A snow hole forms below you, looks like a burrow
+1058: A snow hole forms below you, looks like a burrow
+	//LUNAR SPELLS
+1059: Stat Spy GFX
+1060: Stat Spy GFX
+1061: Humidify GFX
+1062: Spellbook Swap GFX
+1063: Plankmake GFX
+	//BOSS MONSTER FROM DREAM MENTOR
+1064: Transparent purple slime falls, then forms The Inadequacy
+1065: Transparent purple slime expands, and pulses, then forms The Inadequacy
+1066: The Inadequacy magic Attack
+1067: The Inadequacy magic projectile
+1068: The Inadequacy Death GFX
+1069: A Doubt - It's spawning GFX
+1070: A Doubt - when it teleports
+1071: Transparent slime, forms into The Everlasting
+1072: The Everlasting Death GFX
+1073: The Illusive Death GFX
+1074: Make Hunter Kit
+1075: UNKNOWN
+1076: UNKNOWN
+1077: Brown hole forming below you
+1078: A beat spinning
+1079: Werewolf transformation
+1080: Werewolf transformation
+1081: Werewolf transformation
+1082: Werewolf transformation
+1083: Werewolf transformation
+1084: Werewolf transformation
+1085: Werewolf transformation
+1086: Werewolf transformation
+1087: Werewolf transformation
+1088: Werewolf transformation
+1089: Werewolf transformation
+1090: Werewolf transformation
+1091: Werewolf transformation
+1092: Werewolf transformation
+1093: Werewolf transformation
+1094: Werewolf transformation
+1095: Werewolf transformation
+1096: Werewolf transformation
+1097: Werewolf transformation
+1098: Werewolf transformation
+1099: Dark Bow dragon arrow special attack GFX
+1100: Dark Bow arrow impact small black explosion, endGFX/hit
+1101: Dark Bow arrow smoke trail
+1102: Dark Bow arrow smoke trail
+1103: Dark Bow arrow impact smoke hit, endGFX/hit
+1104: Double Arrow pullback - Bronze Arrows
+1105: Double Arrow pullback - Iron Arrows
+1106: Double Arrow pullback - Steel Arrows
+1107: Double Arrow pullback - Mithril Arrows
+1108: Double Arrow pullback - Adamant Arrows
+1109: Double Arrow pullback - Rune Arrows
+1110: Double Arrow pullback - Ice Arrows
+1111: Double Arrow pullback - Dragon Arrows
+1112: Double Arrow pullback - Broad Arrows
+1113: Double Arrow pullback - Fire Arrows or something
+1114: Double Arrow pullback - Fire Arrows or something
+1115: CLIENT CRASH - UNKNOWN
+1116: Single Arrow pullback - Dragon Arrow
+1117: Impling jar Regenerator
+1118: Teleport to Impetuous Implings Minigame - Wheat Field beam
+1119: Impling teleporting to a different location GFX - White smoke puff
+1120: Dragon Arrow w/ Fire projectile
+1121: Dragon Arrow w/ Fire projectile
+1122: UNKNOWN - makes character turn invisible for a second
+1123: Dragon Dart throwing
+1124: Impling jar breaking w/ impling inside
+1125: Impling jar breaking w/ impling inside
+1126: Impling jar breaking w/ impling inside
+1127: Impling jar breaking w/ impling inside
+1128: Impling jar breaking w/ impling inside
+1129: Impling jar breaking w/ impling inside
+1130: Impling jar breaking w/ impling inside
+1131: Impling jar breaking w/ impling inside
+1132: Impling jar breaking w/ impling inside
+1133: Impling jar breaking w/ impling inside
+1134: Exchanging an impling jar w/ impling inside
+1135: Exchanging an impling jar w/ impling inside
+1136: Exchanging an impling jar w/ impling inside
+1137: Exchanging an impling jar w/ impling inside
+1138: Exchanging an impling jar w/ impling inside
+1139: Exchanging an impling jar w/ impling inside
+1140: Exchanging an impling jar w/ impling inside
+1141: Exchanging an impling jar w/ impling inside
+1142: Exchanging an impling jar w/ impling inside
+1143: Exchanging an impling jar w/ impling inside
+1144: Spinning impling jar w/ impling inside
+1145: Spinning impling jar w/ impling inside
+1146: Spinning impling jar w/ impling inside
+1147: Spinning impling jar w/ impling inside
+1148: Spinning impling jar w/ impling inside
+1149: Spinning impling jar w/ impling inside
+1150: Spinning impling jar w/ impling inside
+1151: Spinning impling jar w/ impling inside
+1152: Spinning impling jar w/ impling inside
+1153: Spinning impling jar w/ impling inside
+1154: Burst of Fire below your feet - looks amazing!
+1155: Fireball GFX
+1156: Pet Rock -
+1157: Pet Rock - Throw Stick
+1158: Throwing the Stick projectile
+1159: Stick falling and hitting the ground GFX, disapears
+1160: Dragonfire Shield - swirling fire around the shield, looks like its charging
+1161: Dragonfire Shield - swirling fire around the shield, looks like its charging
+1162: Dragonfire Shield - swirling fire around the shield, looks like its charging
+1163: Dragonfire Shield - swirling fire around the shield, looks like its charging
+1164: Dragonfire Shield - swirling fire around the shield, looks like its charging
+1165: Dragonfire Shield - Sucking in fire, getting ready to shoot projectile
+1166: Dragonfire Shield - projectile
+1167: Dragonfire Shield - burst from the shield
+1168: Dragonfire Shield - small swirling fire
+1169: Lighting a log with a stick and some rope, log lights on fire
+1170: Some bouncing red looking thing, circular LOOKS like a cupcake
+1171: Wierd green vines doing a, very, buggy looking animation
+1172: Picks up 2 parts of a 'bowl' and throws it behind yourself
+1173: Fire erupts from the ground upwards, till above the character
+1174: Can't describe, very wierd, never seen before - UNKNOWN
+1175: An orb of some kind, breaks and shatters, spills purple ooze on floor
+1176: Red swirling GFX encircles the character
+1177: Green swirling GFX encircles the chacracter
+1178: Broken Pest Control Barricades
+1179: Green something like glass, falls downwards
+1180: Giant circle of white smoke, like something vanished
+1181: Changing character clothes, dressing room falls downward
+1182: Changing character clothes, dressing room stays still
+1183: Changing character clothes, dressing room disappears
+1184: Saradomin: Minion: Growler: Start of it's magic attack GFX
+1185: Saradomin: Minion: Growler: Projectile
+1186: Saradomin: Minion: Growler: endGFX/hit GFX
+1187: Yellow 'Guthix Claws' grab below your feet
+1188: Saradomin: Minion: Bree: Ranging Projectile
+1189: Zamorak: Minion: Lava spot opens below you, and fire spews upwards
+1190: Armadyl: Minion: Aviansie javelin projectile
+1191: Armadyl: Minion: Aviansie throwing-axe projectile
+1192: Armadyl: Minion: Aviansie Dual Javelins, look like on fire
+1193: Looks like a brown fog around your head
+1194: Saradomin: Zilyana: Magic based: Lightning GFX - Sarasword GFX
+1195: Bandos Minion: Ranger: Throwing axe projectile
+1196: Armadyl: Kree'ara: Blue/lightning spinning tornado
+1197: Armadyl: Kree'ara: Brown/white spinning tornado
+1198: Armadyl: Kree'ara: Blue spinning tornado
+1199: Armadyl: Minion: UNKNOWN
+1200: Bandos: Graardor: Ranging projectile
+1201: Bandos: Minion: Maging minion GFX, looks like the NPC
+1202: Bandos: Minion: Magic start GFX
+1203: Bandos: Minion: Magic projectile
+1204: Bandos: Minion: Magic splash / endGFX/ hitGFX
+1205: Bandos: Minion: Ranger minion GFX, looks like the NPC
+1206: Bandos: Minion: Throwing axe projectile
+1207: Wierd lightning pattern
+1208: Like something slid in the snow
+1209: Rolling snowball
+1210: Zamorak: K'ril: Ranging start GFX
+1211: Zamorak: K'ril: Ranging projectile
+1212: Zamorak: Minion: Mage start GFX
+1213: Zamorak: Minion: Mage projectile
+1214: Blue sword uppercut, looks like saradomin special, but isn't
+1215: Red sword slash, looks like zamorak special, but isn't
+1216: White sword swirling slash, looks like bandos special, but isn't
+1217: Smaller blue sword uppercut
+1218: Bandos: Graardor: smash, small
+1219: Bandos: Graardor: smash, big
+1220: Saradomin Godsword special attack
+1221: Zamorak Godsword special attack
+1222: Armadyl Godsword special attack
+1223: Bandos Godsword special attack
+1224: Saradomin Sword special attack, when it FAILS
+1225: Looks like Dragon 2h special, small red smash into the ground
+1226: Crossbow bolt shot, plays it 2 times
+1227: 4 white rings, pulse, looks like Growlers mage attack
+1228: Teleporting with the Grand Tree GFX Start
+1229: Teleporting with the Grand Tree GFX End
+1230: Teleporting using a Grand Tree Pod Start
+1231: 2 Spheres, white, look like lightning // Looks random
+1232: Teleporting using a Grand Tree Pod End
+1234: Throwing Dart - Bronze
+1235: Throwing Dart - Iron
+1236: Throwing Dart - Steel
+1237: Throwing Dart - Black
+1238: Throwing Dart - Mithril
+1239: Throwing Dart - Adamant
+1240: Throwing Dart - Rune
+1241: Spinning green looking thing, projectile //Looks random
+1242: Throwing Dart - Dragon
+1243: An explosion, makes a greenish white sphere, and a spikey looking explosion
+1244: Zombie Hand - Emote Tab Emote
+1245: A Fish, flys downwards, then flys back upwards
+1246: Green circular ring forms below you
+1247: CLIENT CRASH - UNKNOWN - END OF 474 GFX

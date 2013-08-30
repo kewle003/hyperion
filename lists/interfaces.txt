@@ -1,0 +1,580 @@
+id    describtion or name
+    
+0    eggs
+1    an sack
+2    grey rectangle box with ? scrolling in the background
+3    bottle with a small ammount of milk in it
+4    time left and water collected
+5    agility arena light in right top corner
+6    brimhaven agility arena ticket
+7    black screen with the word "Text"
+8    Dragontooth island map
+9    rune-draw interface
+10    windspeed interface
+11    bank of runescape - Deposit box
+12    bank of runescape screen
+13    bank pin screen
+14    bank pin setting
+15    
+16    
+17    
+18    
+19    
+20    
+21    
+22    
+23    
+24    Kill cousetInterface(0, nt
+25    which is the next shape in the above sequence
+26    book
+27    book
+28    Blast Furnace bar stock
+29    Blast Furnace plan
+30    Blast Furnace temp gauge
+31    Games room challenge screen
+32    Draughts
+33    Draughts:options
+34    Small Draughts board in right top corner
+35    Draughts
+36    Runelink
+37    Runelink:options
+38    Small Runelink board in right top corner
+39    Runelink
+40    Runesquares
+41    Runesquares:options
+42    Small Runesquares board in right top corner
+43    Runesquares
+44    Runeversi
+45    Runeversi:options
+46    Small Runeversi board in right top corner
+47    Runeversi
+48    cat compass
+49    Book
+50    Brooch
+51    canifis route select
+52    Canoe make - log
+53    Canoe Select Destination
+54    Catapult Controls
+55    Castle Wars team scores
+56    
+57    Waiting for players to join the other team
+58    Castle wars ingame main screen
+59    Castle wars ingame main screen
+60    Castle Wars Ticket Exchange
+61    Name your cat
+62    interface with rocks in the back ground
+63    Defeated champion scroll
+64    chat option - 1 line text
+65    chat option - 2 line text
+66    chat option - 3 line text
+67    chat option - 4 line text
+68    chat option - 1 line text - no continue
+69    chat option - 2 line text - no continue
+70    chat option - 3 line text - no continue
+71    chat option - 4 line text - no continue
+72    Churn cheese
+73    Churn Butter - Churn cheese
+74    Churn Cream - Churn Butter - Churn cheese
+75    Attack style screen - Chop - Hack - Smash - Block
+76    Attack style screen - Pound - Pummel - Block
+77    Attack style screen - Accurate - Rapid - Longrange
+78    Attack style screen - Chop - Slash - Lunge - Block
+79    Attack style screen - Accurate - Rapid - Longrange
+80    Attack style screen - Aim and Fire - Kick
+81    Attack style screen - Chop - Slash - Lunge - Block
+82    Attack style screen - Chop - Slash - Smash - Block
+83    Attack style screen - Spike - Impale - Smash - Block
+84    Attack style screen - Jab - Swipe - Fend
+85    Attack style screen - Bash - Pound - Block
+86    Attack style screen - Reap - Chop - Jab - Block
+87    Attack style screen - Lunge - swipe - pound - Smash
+88    Attack style screen - Pound - Pummel - Spike - Block
+89    Attack style screen - stab - Lunge - Slash - Block
+90    Attack style screen - Bash - Pound - Focus - Spell - Spell
+91    Attack style screen - Accurate - Rapid - Longrange
+92    Attack style screen - punch - kick - Block
+93    Attack style screen - Flick - Lash - Deflect
+94    Destroy item
+95    Map
+96    Dark screen
+97    
+98    Medium dark screen
+99    Harold vs player win screen
+100    bright screen
+101    Scroll with blood on
+102    Item Kept on Deth
+103    What comes next
+104    Star Chart Viewer
+105    SKull in bottom right corner
+106    Duel confirm screen
+107    Duel screen
+108    Duel highscores
+109    
+110    Victorius duel win screen
+111    Book
+112    Man With big ring around his neck
+113    
+114    
+115    Turn screen black
+116    scroll
+117    Lines on screen flashing - lighting 
+118    Smoke or fog
+119    Turn scrren black
+120    
+121    Goes black then goes back to dull
+122    Turns screen grey for 2 secs then goes back to normal
+123    Certicate of advanced healing from poxstead college
+124    list of fairy queen's symptoms
+125    Amazing farming equiment store
+126    Amazing farming equiment store - inventory one
+127    Remove this key
+128    train track map
+129    train track map
+130    train track map
+131    
+132    List of items needed for king roald's garden
+133    3 options - [A] - [B] - [C]
+134    Choose the stat you wish to be advanced!
+135    Sign post - might be the falador one
+136    2 heads
+137    Chat interface
+138    Gnome Guilder map
+139    Gnomeball score
+140    
+141    grave digger random grave view
+142    Draganoth door in the lighthouse
+143    
+144    Train cart control
+145    Recipe for Disaster subquest screen
+146    pentagon shape spinning 
+147    
+148    
+149    inventory
+150    Boat crashing into a statue
+151    
+152    
+153    Oh dear your're dead, but don't despair!
+154    What would you like to make? - leather
+155    
+156    
+157    Agility level-up
+158    Attack level-up
+159    Cooking level-up
+160    Crafting level-up
+161    Defence level-up
+162    Farming level-up
+163    Firemaking level-up
+164    Fishing level-up
+165    Fletching level-up
+166    Herblore level-up
+167    Hitpoint level-up
+168    Magic level-up
+169    Mining level-up
+170    Prayer level-up
+171    Ranging level-up
+172    Runecrafting level-up
+173    Slayer level-up
+174    Smithing level-up
+175    Strength level-up
+176    Thieving level-up
+177    Woodcutting level-up
+178    Light candles
+179    dull screen
+180    flashing screen
+181    Rotate mirror
+182    Logout
+183    History of goblin race book
+184    Is this: 3 options a-b-c
+185    3 reels with gold items on them
+186    Watch the statue! Fish here!
+187    How many fingers is being held up
+188    mimic emote select
+189    lock screen 6 locks up the top spinning
+190    random box event
+191    Odd one out
+192    Normal magic
+193    Ancient magic
+194    Alchemy
+195    Enchantment
+196    Graveyard
+197    Magic training arena shop
+198    Telekinetic
+199    Hairdresser's salon
+200    Yrsa's Shoe Store
+201    Thessalia's Makeovers (legs)
+202    Thessalia's Makeovers (Torso)
+203    Hairdresser's salon
+204    Hairdresser's salon
+205    Select skin colour and gender
+206    Thessalia's Makeovers (legs)
+207    Thessalia's Makeovers (Torso)
+208    
+209    Complete the maze as fast as possible
+210    Chatoption - 1 line text
+211    Chatoption - 2 line text
+212    Chatoption - 3 line text
+213    Chatoption - 4 line text
+214    Chatoption - 5 line text
+215    Chatoption - 1 line text - no continue
+216    Chatoption - 2 line text - no continue
+217    Chatoption - 3 line text - no continue
+218     Chatoption - 4 line text - no continue
+219    Chatoption - 5 line text - no continue
+220    scroll
+221    
+222    scroll
+223    Pinguin emote options
+224    boat map - Rellekka
+225    
+226    mud splating on the screen
+227    list of needed items - mourning_deathalter
+228    2 options
+229    2 options
+230    3 options
+231    3 options
+232    4 options
+233    4 options
+234    5 options
+235    5 options
+236    2 options
+237    4 options
+238    5 options
+239    Music Tab
+240    evil twin crane control
+241    Chatoption - 1 line text
+242    Chatoption - 2 line text
+243    Chatoption - 3 line text
+244    Chatoption - 4 line text
+245    Chatoption - 1 line text - no continue
+246    Chatoption - 2 line text - no continue
+247    Chatoption - 3 line text - no continue
+248    Chatoption - 4 line text - no continue    
+249    rectangle with some ancient text in it
+250    same as 249 but uncoded
+251    instructions for Beacon Ring
+252 lock with stars triangles all that jazz
+253 barrows i think a puzzle?
+254 a map of some sort
+255 blank scroll
+256 Barb assault
+257 Shining star
+258 train?
+259 achiev diary
+260 Chest/Bank thing
+261 Sounds Tab
+262 Blank thing
+263 Score: 0
+264 telescope?
+265 p drop chest
+266 blank
+267 Void Knight reward
+268 Pick a kitten
+269 char design
+270 New map
+271 Pray tab
+272 Grave monument
+273 Pop balloon
+274 QP Tab
+275 Quest Scroll
+276 Quest reqard
+277 Other quest reward
+278 range guild
+279 cat fight
+280 Bet X!
+281 Kittens?
+282 Play tunes
+283 more tunes
+284 rat bottom right
+285 Comb lock door
+286 fractional still
+287 blank cross check
+288 rune reversi thing
+289 same
+290 lock and combo?
+291 6 yellow square
+292 same as 291 different
+293 fire with square
+294 rum deal
+295 rum deal
+296 glowy interface
+297 refreshment me!
+298 combo lock door
+299 journey on ship
+300 blank
+301 blank
+302 scroll
+303 you like make?
+304 like make?
+305 like make?
+306 like make?
+307 cook
+308 blank scroll
+309 like make?
+310 auto cast thing
+311 - 312 smithing things
+313 foggy
+314 select an option
+315 rage level
+316 blank
+317 black screen
+318 ghost!
+319 auto cast normal spells
+320 stats
+321 map
+322 map
+323 tai bwo wannai parcel
+324 hides tan?
+325 Target
+326 Teleport ther
+327 Warning are cold
+328 temple repair
+329 routes?
+330 lock?
+331 combi for lock >.>
+332 enchant what?(Staffs)
+333 blank(Black)
+334 accept trade?
+335 trade before
+336 blank
+337 - 370 c scroll
+371 tut progress
+372 5 chat
+373 current champ foes remain
+374 view orbs
+375 unmorph
+376 eggs?
+377 tai bwo favour
+378 welcome screen
+379 unsure
+380 wild levels
+381 ""
+382 enter wildy?
+383 pick colour
+384 scroll
+385 crack screen
+386 look scope
+387 worn items
+388 ancient auto cast
+389 duel overlay
+390 show riddle thing
+391 miscellania
+392 resources collect
+393 guess?
+394 furniture create
+395 construct level up
+396 furnitue build
+397 furni create thing
+398 house option
+399 house loading
+400 tab creating
+401 unsure
+402 room create menu
+403 convert planks
+404 glowing orb thingy
+405 blank
+406 auto cast undead etc
+407 pc interface!
+408 same as!
+409 canon quest thing
+410 catapult defence game
+411 def style
+412 attack dummy key
+413 hole?
+414 team won some wierd
+415 same as above
+416 unsure
+417 unsure
+418 player waiting
+419 pirate things
+420 bee hive random
+421 chat box
+422 red screen flash
+423 fairy things
+424 ""
+425""
+426 telport fairy rings
+427 some wierd fairy thing
+428 thieving plunder
+429 random thing contact!
+430 lunar interface
+431 travel moonclan/ thingy
+432 enchatn bolt
+433 bolt container
+434 - 437 gnome thing
+438 silver thing
+439 star?
+440 qualified lvl 1
+441 quali lvl 2
+442 wierd ass?
+443 tetris!!!
+444 lvl 3 certificate
+445 lock and wierd ass ****
+446 what make, rings etc
+447 open door thing
+448 green screen
+449 blank
+450 darkening screen kinda
+451 3 options
+452 key round neck
+453 black screen
+454 erm nothing map? 
+455 - 457 = thingy
+459 = spin what?
+460 dust screen
+41 fish platform
+462 show/select rotate
+463 certificate
+464 emote tab
+465 equip char
+466 erm lever?
+467 rooms houser thing
+468 diango item return
+469 fishing map thing
+470 nice sky
+471 balloon controls
+472 ""
+473 chinchompas!!!
+474 salamanders
+475 red chins!
+476 salamanders
+477 custom fur clothing
+478 imp release negotiation form
+489 wierd
+480 animal magnetism thing
+481 snow!
+482 ""
+483 blank
+484 - 490 arb assault
+491 barb rewards
+492 interface acceptance barb/
+493 same as 492
+494 time until;
+495 chat thing
+496 tut
+497 wierd
+498 jaleff
+499 attack guide
+500 bank?
+501 wierd ass **** lol
+502 same
+503 clock work toy guide
+504 panels?
+505 map...
+506 jester controls
+507 guess again
+508 word maghic/logic
+509 place bar
+510 turn valves holes
+511 move piecs
+512 blank
+513 blank
+514 kitten playing
+515 green screen
+516 black screen
+517 blank
+517 follower inventory
+519 click here continue
+520 courage
+521 guidanc system
+522 monster name
+523 stat lookup?
+524 Text text
+525 this an interface split
+526 full of above
+527 blank
+528 black wierd writing
+529 right half
+530 book
+531 VtAM
+531 museum kudos
+532 displays
+533 displays
+534 piano
+535 piano
+536 shrink me quick recipe
+537 piano play
+538 things to do
+539 blank
+540 exchange imps
+541 imp catch things
+542 what like make lanterns?
+543 strom!
+544 boat traveling crandor?
+545 dragon flying
+546 drag in air
+547 map crandor
+548  DCS
+549 black
+550 friends
+551 ignores
+552 star night
+553 report
+554 slect option
+555 same
+556 same
+557 2 options
+558 make what?
+559 random thing
+560 wrning
+561 kalph warning
+562 dark need light
+563 enter build mode
+564 shoot archers
+565 desert danger
+566 item dropped?
+567 without light
+568 do nnot extinguish
+569 same 567
+560 same 569
+571 same
+572 same
+573 follow thing
+574 dangerous
+575 kbd danger
+576 wilderness and is one way
+577 dark
+578 fairy code
+579 climb down
+580 mort myre
+581 death plateau
+582 how many make
+583 reset warning frames
+584 statue
+585 climbing statue thing
+586 change of address
+587 meet at camel
+588 barrows lock
+589 cc
+590 clan chat setup
+591 thessalias maker over
+592 haird dresser
+593 arm bands
+594 thessaila
+595 arm bands
+596 hairdresser
+597 GODWARS KC DARK
+598 very dark
+599 darker
+600 darkness
+601 godwars kc bright
+602 blank
+603 hand...
+604 flags
+605 zooming in :D
+606 hand
+607 pasting poster
+608 tree ent
+609 posters
+610 sliding black
+611 posters
+612 posters
+613 lock some sort
+614 posters
+615 king gnome
+616 flags
+617 book bolries diary
+618 poster
+619 pay bank charge with runes
+620 lowes archery (shops)
+621 blank
+622 end of them

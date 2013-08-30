@@ -1,0 +1,171 @@
+<GAME_CONFIGURATION>
+
+    <!--
+    *  >>This is RS377d's way of loading configuration files!!
+    *  Credits to Blakeman!!<<
+    *
+    *  GAME:
+    *    These are the main game settings, such as
+    *
+    *  SERVER_NAME: The name of the server.
+    *  ALIAS: (Shortcuts)
+    *  %revision% : alias to display the game revision. In this case, (unchangable atm) 474.
+    *
+    *  PORT:
+    *    The game server port.
+    *
+    *  MEMBERS:
+    *    If the server is a members world.
+    *
+    *  EXP_MODIFIER:
+    *    The EXP Modifier.
+    *
+    *  WEB_AUTHENTICATION:
+    *     If the server is checking for registered members only.
+    *
+    -->
+    <GAME
+            SERVER_NAME="ScapeRune"
+            PORT="43594"
+            MEMBERS="false"
+            EXP_MODIFIER="1"
+            WEB_AUTHENTICATION="false"
+            />
+
+    <!--
+    *   WELCOME_SCREEN:
+    *        The welcome screen settings!
+    *
+    *   SCREEN:
+    *     The Screen ID to display.
+    *       16 = Moving cogs
+    *       17 = Question marks
+    *       18 = Drama faces
+    *       19 = Bank pin vaults
+    *       20 = Bank pin question marks
+    *       21 = Player scamming
+    *       22 = Bank pin vaults with moving key
+    *       23 = Christmas presents & Santa
+    *       24 = Kill count
+    *
+    *   MESSAGE:
+    *     The message to display.
+    *     ALIAS: (Shortcuts)
+    *     %server_name% : alias to display the server name.
+    -->
+    <WELCOME_SCREEN
+            SCREEN="23"
+            MESSAGE="Welcome to %server_name%."
+            />
+
+    <!--
+    * Server entity configuration block.
+    *
+    * MAX_PLAYERS:
+    *     The maximum amount of players that will be allowed into the server.
+    *
+    * MAX_NPCS:
+    *     The maximum amount of NPCs that can populate the server.
+    *
+    * DEFAULT_X, DEFAULT_Y, and DEFAULT_Z:
+    *     The default position of entities in the server. Players that do
+    *     not have saved games will spawn at this location, as will NPCs
+    *     who do not have location coordinates set for them.
+    -->
+    <ENTITY
+            MAX_PLAYERS="2000"
+            MAX_NPCS="2000"
+            />
+
+    <!--
+    * FILES:
+    *   Files & Directory configurations
+    *
+    *   SCRIPT_DIRECTORY:
+    *     The directory for the server to recursively load Python game-content
+    *     scripts from.
+    *
+    *   ITEM_DEFINITIONS_FILE:
+    *     The file which contains the item definitions.
+    *
+    *   EQUIPMENT_DEFINITIONS:
+    *     The file which contains the equipment definitions.
+    *
+    *   NPC_DEFINITIONS:
+    *     The file which contains the npc definitions bin.
+    *
+    *   NPC_COMBAT_DEFINITIONS:
+    *     The file which contains the npc combat definitions.
+    *
+    *   SHOP_DEFINITIONS:
+    *     The file which contains the shop definitions.
+    *
+    *   CUSTOM_OBJECTS_DEFINITIONS:
+    *     The file which contains the custom object definitions.
+    *
+    *   ITEM_SPAWNS:
+    *     The file which contains the item spawning definitions.
+    *
+    *   NPC_SPAWNS_FILE:
+    *     The file which contains the npc spawning definitions.
+    *
+    *   DOORS_FILE:
+    *     The file which contains the door handling.
+    *
+    *   BOUNDARIES_FILE:
+    *     The file which contains the boundaries.
+    *
+    -->
+    <FILES
+            SCRIPTS_DIRECTORY="./data/scripts/"
+            ITEM_DEFINITIONS="./data/itemDefinitions.bin"
+            EQUIPMENT_DEFINITIONS="./data/equipmentDefinition.xml"
+            NPC_DEFINTIONS="./data/npcDefinitions.bin"
+            NPC_COMBAT_DEFINITIONS="./data/npcCombatDefinition.xml"
+            SHOP_DEFINITIONS="./data/shops.xml"
+            CUSTOM_OBJECTS_DEFINITIONS="./data/customObjects.xml"
+            ITEM_SPAWNS_FILE="./data/itemSpawns.xml"
+            NPC_SPAWNS_FILE="./data/npcSpawns.xml"
+            DOORS_FILE="./data/doors.xml"
+            BOUNDARIES_FILE="./data/boundaries.xml"
+            />
+
+    <!--
+    * STAFF:
+    *   Global Staff Rights!  !!! ONLY WORKS WHEN WEB_AUTHENTICATION IS OFF !!!
+    *   Otherwise, rights loads based on the player's forum rights.
+    *
+    * Example usage:
+    *   <USER NAME="pkdude">
+    *        <PLAYER RIGHTS="PLAYER"/>
+    *   </USER>
+    *
+    *  NAME:
+    *   The player's name. There could be more than one, e.g. <USER NAME="player1, player2">
+    *
+    *  PLAYER RIGHTS:
+    *   The player's rights.
+    *   THERE IS ONLY 3 RIGHTS, PLEASE PICK FROM THESE! ANYTHING ELSE WILL BE AN ERROR.
+    *   >
+    *   PLAYER
+    *   MODERATOR
+    *   ADMINISTRATOR
+    *   <
+    *  If you want to add more rights, go into Player.java, and look for the enum: Rights.
+    *  Only add people to this list if only they're staff, you don't need to use the right: PLAYER
+    *  for every single person that joins the server.
+    *
+    -->
+    <STAFF>
+
+        <USER NAME="phys">
+            <PLAYER RIGHTS="ADMINISTRATOR"/>
+        </USER>
+
+        <USER NAME="Test">
+            <PLAYER RIGHTS="MODERATOR"/>
+        </USER>
+
+    </STAFF>
+
+</GAME_CONFIGURATION>

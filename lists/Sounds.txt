@@ -1,0 +1,81 @@
+///////////////////////////////////////////////////////
+/----------------------------------------------------/
+/                |----------------------|            /
+/                |SEXY SOUNDS BY AHRIDOK|            /
+/                |Released to Scu11 Only|            /                                                     
+/                |----------------------|            /
+/           www.rune-server.org/members/ahridok/     /
+/----------------------------------------------------/
+//////////////////////////////////////////////////////
+//SOUND ID//                 //DELAY//
+            //SPECIAL SOUNDS//
+|Armadyl GodSword = 3865      Delay = 25          
+|Bandos  GodSword = 3834      Delay = 0            
+|Dragon Mace      = 2541      Delay = 0            
+|Dragon Dagger (S)= 2537      Delay = 0  
+|Abyssal whip     = 2713      Delay = 0 
+|Dragon bolt (E) SPECIAL = 2915      Delay = 0  
+|Dark bow         = 3737      Delay = 1 
+|Saradomin Sword = 3853       Delay = 1 
+|------------NORMAL SOUNDS-----------
+|			case 861:
+				return 2693;
+			case 859:
+				return 2693;
+			case 857:
+				return 2693;
+			case 855:
+				return 2693;
+			case 853:
+				return 2693;
+			case 851:
+				return 2693;
+			case -1:
+				return 2564;
+			case 4151:
+				return 2720;
+			case 4726:
+				return 1328;
+			case 4755:
+				return 1323;
+			case 4747:
+				return 1332;
+			case 4675:
+				return 2555;
+			case 6528:
+				return 2520;
+			case 4587:
+			case 1305:
+				return 2500;
+			case 4718:
+				return 1321;
+			case 5698:
+				return 2517;
+			case 4734:
+			case 9185:
+				return 2700;
+			case 868:
+				return 2696;
+			case 11235:
+				return 3731;
+			case 11694:
+			case 11696:
+			case 11698:
+			case 11700:
+			case 11730:
+				return 3846;	
+		    default:
+			return 10000;
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
