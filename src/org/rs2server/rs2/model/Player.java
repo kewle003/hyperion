@@ -265,17 +265,6 @@ public class Player extends Mob implements Persistable {
      * <Kewley>
      */
     private boolean fightCavesCompleted = false;
-    
-    /**
-     * Checks if a player is in the fight caves
-     * <Kewley>
-     */
-    private boolean inFightCaves = false;
-    
-    /**
-     * Current wave in the fight caves
-     */
-    private int currentFightCaveWave = 0;
 
     /**
      * The cutscene flag.
@@ -1185,38 +1174,6 @@ public class Player extends Mob implements Persistable {
      */
     public void setFightCaves(boolean completed) {
     	this.fightCavesCompleted = completed;
-    }
-    
-    /**
-     * This function will grab the player's current wave
-     * @return The wave
-     */
-    public int getCurrentFightCaveWave() {
-    	return currentFightCaveWave;
-    }
-    
-    /**
-     * This function will increment the players progress
-     * through fight caves
-     */
-    public void incrementFightCaveWave() {
-    	this.currentFightCaveWave++;
-    }
-    
-    /**
-     * This function is used when a player quits or
-     * looses.
-     */
-    public void resetFightCaveWave() {
-    	this.currentFightCaveWave = 0;
-    }
-    
-    /**
-     * This function checks if the 
-     * @return
-     */
-    public boolean inFightCaves() {
-    	return inFightCaves;
     }
 
     /**

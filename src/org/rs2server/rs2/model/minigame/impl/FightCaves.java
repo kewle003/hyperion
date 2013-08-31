@@ -246,7 +246,6 @@ public class FightCaves extends AbstractMinigame {
 		end();
 		player.setLocation(getStartLocation());
 		player.setTeleportTarget(getStartLocation());
-		player.resetFightCaveWave();
 		return true;
 	}
 	
@@ -259,6 +258,7 @@ public class FightCaves extends AbstractMinigame {
 			if(currentNPCs.size() < 1) {
 				wave = Wave.forId(this.wave.getId() + 1);
 				if(wave == null) {
+					participant.get(0).setFightCavesCompleted();
 					end();
 					}
 					return;//finished
