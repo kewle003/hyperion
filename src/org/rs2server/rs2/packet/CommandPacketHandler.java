@@ -246,6 +246,12 @@ public class CommandPacketHandler implements PacketHandler {
                             System.exit(0);
                         }
                     });
+                } else if (command.startsWith("coords")) {
+                	int x = player.getLocation().getX();
+                	int y = player.getLocation().getY();
+                	int z = player.getLocation().getZ();
+                	player.getActionSender().sendMessage("Coords: X[" +x+"]"
+                			+ " Y[" +y+ "] Z[" +z+ "]");
                 } else if (command.startsWith("spawn")) {
                     if (Integer.parseInt(args[1]) == 2) {
                         player.getActionSender().sendMessage("Not allowed");

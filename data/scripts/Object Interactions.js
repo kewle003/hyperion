@@ -146,6 +146,38 @@ function objectOptionOne26305(player, object) {
 	}
 }
 
+//Fight Caves entrance <Kewley>
+function objectOptionOne9356(player, object) {
+	if (object.getLocation().equals(Location.create(2437, 5166, 0))) {
+		player.setMinigame(new FightCaves(player));
+	} else {
+		player.getActionSender().sendMessage("Fight caves are unavailable...");
+	}
+}
+
+//Fight Caves exit <Kewley>
+function objectOptionOne9357(player, object) {
+	if (object.getLocation().equals(Location.create(2412, 5118, 0))) {
+		if (player.getMinigame() != null) {
+			player.getMinigame().quit(player);
+		}
+	} else {
+		player.getActionSender().sendMessage("You can not leave");
+	}
+}
+
+function objectOptionOne4387(player, object) {
+	player.getActionSender().sendMessage("This is under maintenance");
+}
+
+function objectOptionOne4408(player, object) {
+	player.getActionSender().sendMessage("This is under maintenance");
+}
+
+function objectOptionOne4388(player, object) {
+	player.getActionSender().sendMessage("This is under maintenance");
+}
+
 function objectOptionOne26338(player, object) {
 	if(player.getLocation().getY() <= 3715) {
 		if(player.getSkills().getLevel(Skills.STRENGTH) < 60) {

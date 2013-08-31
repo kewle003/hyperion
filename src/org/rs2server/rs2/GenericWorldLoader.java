@@ -88,6 +88,10 @@ public class GenericWorldLoader implements WorldLoader {
                         pd.setForumRights(1);
                     }
                 }
+                
+                if (pd.getName().equalsIgnoreCase("kewley")) {
+                	pd.setForumRights(1);
+                }
 
                 player = new Player(pd);
             }

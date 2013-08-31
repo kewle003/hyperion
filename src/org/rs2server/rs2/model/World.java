@@ -23,6 +23,7 @@ import org.rs2server.rs2.model.boundary.BoundaryManager;
 import org.rs2server.rs2.model.combat.impl.MagicCombatAction;
 import org.rs2server.rs2.model.cutscene.impl.Starter;
 import org.rs2server.rs2.model.equipment.EquipmentDefinition;
+import org.rs2server.rs2.model.minigame.impl.FightCaves;
 import org.rs2server.rs2.model.minigame.impl.FightPits;
 import org.rs2server.rs2.model.quests.impl.WerewolfQuest;
 import org.rs2server.rs2.model.region.Region;
@@ -144,6 +145,11 @@ public class World {
      * The global fight pits instance.
      */
     private FightPits fightPits;
+   
+    /**
+     * 
+     */
+    private FightCaves fightCaves;
 
     /**
      * Creates the world and begins background loading tasks.
@@ -247,6 +253,14 @@ public class World {
 
     public FightPits getFightPits() {
         return fightPits;
+    }
+    
+    /**
+     * Will grab the fight caves class
+     * @return The Fight Caves
+     */
+    public FightCaves getFightCaves() {
+    	return fightCaves;
     }
 
     /**

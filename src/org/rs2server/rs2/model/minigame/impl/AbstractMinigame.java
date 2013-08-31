@@ -104,6 +104,7 @@ public class AbstractMinigame implements Minigame {
 	@Override
 	public void movementHook(Player player) {
 		if(!BoundaryManager.isWithinBoundaryNoZ(player.getLocation(), getBoundary())) {
+			System.out.println("We called the Abstract class movementHook");
 			quit(player);
 		}
 	}

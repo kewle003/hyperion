@@ -259,6 +259,23 @@ public class Player extends Mob implements Persistable {
      * The fight pits winner flag.
      */
     private boolean fightPitsWinner = false;
+    
+    /**
+     * Sets info about if he has finished fight caves
+     * <Kewley>
+     */
+    private boolean fightCavesCompleted = false;
+    
+    /**
+     * Checks if a player is in the fight caves
+     * <Kewley>
+     */
+    private boolean inFightCaves = false;
+    
+    /**
+     * Current wave in the fight caves
+     */
+    private int currentFightCaveWave = 0;
 
     /**
      * The cutscene flag.
@@ -1143,6 +1160,64 @@ public class Player extends Mob implements Persistable {
     public void setFightPitsWinner(boolean fightPitsWinner) {
         this.fightPitsWinner = fightPitsWinner;
     }
+    
+    /**
+     * Checks if a player has completed the fight caves
+     * @return true => yes he has, false otherwise
+     * <Kewley>
+     */
+    public boolean completedFightCaves() {
+    	return fightCavesCompleted;
+    }
+    
+    /**
+     * If the player finished fight caves this must be called
+     * <Kewley>
+     */
+    public void setFightCavesCompleted() {
+    	this.fightCavesCompleted = true;
+    }
+    
+    /**
+     * Used for saving the players fight caves status
+     * <Kewley>
+     * @param completed true => completed, false otherwise
+     */
+    public void setFightCaves(boolean completed) {
+    	this.fightCavesCompleted = completed;
+    }
+    
+    /**
+     * This function will grab the player's current wave
+     * @return The wave
+     */
+    public int getCurrentFightCaveWave() {
+    	return currentFightCaveWave;
+    }
+    
+    /**
+     * This function will increment the players progress
+     * through fight caves
+     */
+    public void incrementFightCaveWave() {
+    	this.currentFightCaveWave++;
+    }
+    
+    /**
+     * This function is used when a player quits or
+     * looses.
+     */
+    public void resetFightCaveWave() {
+    	this.currentFightCaveWave = 0;
+    }
+    
+    /**
+     * This function checks if the 
+     * @return
+     */
+    public boolean inFightCaves() {
+    	return inFightCaves;
+    }
 
     /**
      * Gets the user quest points
@@ -1363,6 +1438,10 @@ public class Player extends Mob implements Persistable {
         if (buf.hasRemaining()) {
             setQuestPoints(buf.getInt());
         }
+        //<Kewley>
+        if (buf.hasRemaining()) {
+        	setFightCaves(buf.get() == 1);
+        }
     }
 
     @Override
@@ -1441,6 +1520,8 @@ public class Player extends Mob implements Persistable {
         //    buf.putInt((byte) getQuestStorage().getQuestStage(new WerewolfQuest()));
         //  buf.putInt((byte) getQuestStorage().getQuestStage(new DwarfCannonQuest()));
         buf.putInt((byte) getQuestPoints());
+        //<Kewley>
+        buf.put((byte) (completedFightCaves() ? 1 : 0));
     }
 
     @Override

@@ -75,6 +75,7 @@ public class ObjectOptionPacketHandler implements PacketHandler {
         Region r = player.getRegion();
         final GameObject obj = r.getGameObject(loc, id);
         if (obj == null && id != 23271) {
+        	System.out.println("ObjectOptionPacketHandler: ID is null " +id);
             return;
         }
 
@@ -215,6 +216,11 @@ public class ObjectOptionPacketHandler implements PacketHandler {
                                     player.playAnimation(Animation.create(7002));
                                 }
                                 break;
+                            case 4387:
+                            case 4408:
+                            case 4388:
+                            	player.getActionSender().sendMessage("This is under maintenance");
+                            break;
                             default:
                                 if (obj.getDefinition() != null) {
                                     if (obj.getDefinition().getName().toLowerCase().contains("banana")) {
@@ -262,6 +268,7 @@ public class ObjectOptionPacketHandler implements PacketHandler {
                                         return;
                                     }
                                 }
+                                System.out.println("Id: " +id);
                                 String scriptName = "objectOptionOne" + id;
                                 if (!ScriptManager.getScriptManager().invokeWithFailTest(scriptName, player, obj)) {
                                     player.getActionSender().sendMessage("Nothing interesting happens.");
@@ -288,6 +295,7 @@ public class ObjectOptionPacketHandler implements PacketHandler {
         final int id = packet.getLEShort() & 0xFFFF;
         final int y = packet.getShortA() & 0xFFFF;
         int z = player.getLocation().getZ();
+        System.out.println("Option2 ID: " +id);
         /*	if(player.getAttribute("temporaryHeight") != null) {
               z = player.getAttribute("temporaryHeight");
           } */
