@@ -1,9 +1,9 @@
 package org.rs2server.rs2.model.minigame.impl;
 
-import java.util.logging.Logger;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.rs2server.rs2.event.Event;
 import org.rs2server.rs2.model.DialogueManager;
 import org.rs2server.rs2.model.Location;
 import org.rs2server.rs2.model.NPCDefinition;
@@ -12,17 +12,10 @@ import org.rs2server.rs2.model.NPC;
 import org.rs2server.rs2.model.Mob;
 import org.rs2server.rs2.model.WalkingQueue;
 import org.rs2server.rs2.model.World;
-import org.rs2server.rs2.model.Mob.InteractionMode;
 import org.rs2server.rs2.model.boundary.Boundary;
-import org.rs2server.rs2.model.boundary.BoundaryManager;
 import org.rs2server.rs2.tickable.Tickable;
 
 public class FightCaves extends AbstractMinigame {
-	
-	/**
-	 * Logger instance
-	 */
-	private static final Logger logger = Logger.getLogger(FightCaves.class.getName());
 	
 	/**
 	 * The maximum amount of players allowed
@@ -46,16 +39,6 @@ public class FightCaves extends AbstractMinigame {
 	private List<Player> participant;
 	
 	/**
-	 * Checks if the player has completed a given wave
-	 */
-	private int currentWave = 0;
-	
-	/**
-	 * The fight caves start flag
-	 */
-	private boolean fightCavesStarted = false;
-	
-	/**
 	 * All of the NPC id's
 	 */
 	public static final int TZ_KIH = 2627;
@@ -68,7 +51,6 @@ public class FightCaves extends AbstractMinigame {
 	
 	/**
 	 * List of the npcs during a current wave
-	 */
 	private final int[][] wa = {{TZ_KIH},
 		  	  {TZ_KIH,TZ_KIH},
 		  	  {TZ_KEK},
@@ -132,7 +114,7 @@ public class FightCaves extends AbstractMinigame {
 		  	  {KET_ZEK,YT_MEJKOT,YT_MEJKOT},
 		  	  {KET_ZEK,KET_ZEK},
 		  	  {TZTOK_JAD}};;
-		  	 
+		  	 **/
 	private enum Wave {
 		ONE(0, new NPC[] { new NPC(NPCDefinition.forId(TZ_KIH), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) });
 		
@@ -198,17 +180,20 @@ public class FightCaves extends AbstractMinigame {
 	
 	/**
 	 * This will spawn the next NPC's wave
-	 * @param player
+	 * @param wave The current Wave enum value
 	 */
 	public void spawnWave(Wave wave) {
 		NPC[] waveNPCs = wave.getNPCs();
 		currentNPCs = new ArrayList<NPC>();
 		participant.get(0).getActionSender().sendMessage("Wave: " +wave.getId());
+		if (wave.getId() == 63) {
+			//Special dialogue
+		}
 		for (NPC npc : waveNPCs) {
 			NPC newNPC = new NPC(npc.getDefinition(), Location.create(npc.getSpawnLocation().getX(), npc.getSpawnLocation().getY(), 0), null, null, npc.getDirection());
 			currentNPCs.add(newNPC);
 			World.getWorld().register(newNPC);
-			newNPC.getCombatState().startAttacking(participant.get(0), false);
+			newNPC.getCombatState().startAttacking(participant.get(0), false); //In beta
 			
 		}
 
@@ -221,6 +206,8 @@ public class FightCaves extends AbstractMinigame {
 		for(Player player : participant) {
 			player.resetVariousInformation();
 			player.setTeleportTarget(Location.create(2413, 5116, 0));
+			player.getActionSender().removeAllInterfaces();
+			DialogueManager.openDialogue(player, 229);
 		}
 		spawnWave(wave);
 	}
@@ -228,6 +215,7 @@ public class FightCaves extends AbstractMinigame {
 	@Override
 	public void quit(Player player) {
 		super.quit(player);
+		//end();
 	}
 	
 	@Override
@@ -244,6 +232,7 @@ public class FightCaves extends AbstractMinigame {
 	public boolean deathHook(Player player) {
 		quit(player);
 		end();
+		player.forceChat("God Fucking Dammit!");
 		player.setLocation(getStartLocation());
 		player.setTeleportTarget(getStartLocation());
 		return true;
@@ -260,6 +249,7 @@ public class FightCaves extends AbstractMinigame {
 				if(wave == null) {
 					participant.get(0).setFightCavesCompleted();
 					end();
+					DialogueManager.openDialogue(participant.get(0), 231);
 					}
 					return;//finished
 				}
@@ -289,9 +279,6 @@ public class FightCaves extends AbstractMinigame {
 	
 	@Override
 	public Boundary getBoundary() {
-		//TODO correct coords
-		//2430 5125
-		//2365 5060
 		return Boundary.create(getName(), Location.create(2365, 5060, 0), Location.create(2430, 5125, 0));
 	}
 	

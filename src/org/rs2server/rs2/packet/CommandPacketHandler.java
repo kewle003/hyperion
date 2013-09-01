@@ -155,7 +155,15 @@ public class CommandPacketHandler implements PacketHandler {
                         player.playAnimation(Animation.create(anim));
                         player.playGraphics(Graphic.create(gfx));
                     }
-                } else if (command.equals("interface")) {
+                }  else if (command.equals("anim")) {
+                	if (args.length == 2) {
+                		int anim = Integer.parseInt(args[1]);
+                		player.playAnimation(Animation.create(anim));
+                	} else {
+                		player.getActionSender().sendMessage("Syntax: ::anim [id]");
+                		return;
+                	}
+                }  else if (command.equals("interface")) {
                     if (args.length == 2) {
                         int id = Integer.parseInt(args[1]);
                         player.getActionSender().sendInterface(id, true);

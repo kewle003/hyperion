@@ -9,6 +9,7 @@ import org.rs2server.rs2.model.quests.Quest;
 import org.rs2server.rs2.model.quests.QuestRepository;
 import org.rs2server.rs2.model.quests.impl.DwarfCannonQuest;
 import org.rs2server.rs2.model.quests.impl.WerewolfQuest;
+import org.rs2server.rs2.net.ActionSender;
 import org.rs2server.rs2.net.ActionSender.DialogueType;
 
 
@@ -1388,6 +1389,52 @@ public class DialogueManager {
             case 228:
                 player.getActionSender().sendDialogue(npc.getDefinition().getName(), DialogueType.NPC, 5893, FacialAnimation.DRUNK_TO_LEFT,
                         "I'm a hero!");
+                player.getInterfaceState().setNextDialogueId(0, 97);
+                break;
+            //229-233 fightCaves
+            case 229:
+                player.getActionSender().sendDialogue("TzHaar-Mej-Kah", DialogueType.NPC, 2618, FacialAnimation.DEFAULT,
+                        "You're on your own now, JalYt.", 
+                        "Prepare to fight for your life!");
+                player.getInterfaceState().setNextDialogueId(0, 97);
+                break;
+            case 230:
+                player.getActionSender().sendDialogue(player.getName(), ActionSender.DialogueType.PLAYER, 1, Animation.FacialAnimation.ALMOST_CRYING,
+                        "Ughhh I give up!");
+                player.getInterfaceState().setNextDialogueId(0, 234);
+            	break;
+            case 231:
+                player.getActionSender().sendDialogue("TzHaar-Mej-Kah", DialogueType.NPC, 2618, FacialAnimation.DEFAULT,
+                        "I can't believe you did it!",
+                        "Take this fire cape as a reward.");
+                if (player.getInventory().hasRoomFor(new Item(6570))) {
+                	player.getInventory().add(new Item(6570));
+                	player.getInterfaceState().setNextDialogueId(0,97);
+                } else {
+                	player.getInterfaceState().setNextDialogueId(0, 232);
+                }
+                break;
+            case 232:
+            	if (player.getBank().hasRoomFor(new Item(6570))) {
+                    player.getActionSender().sendDialogue("TzHaar-Mej-Kah", DialogueType.NPC, 2618, FacialAnimation.DISTRESSED,
+                            "It looks like you have no room for your reward.",
+                            "I will put it in your bank.");
+                	player.getBank().add(new Item(6570));
+                	player.getInterfaceState().setNextDialogueId(0,97);
+            	} else {
+            		player.getInterfaceState().setNextDialogueId(0, 233);
+            	}
+            	break;
+            case 233:
+            	player.getActionSender().sendDialogue("", DialogueType.MESSAGE, 0, null, "You have no room anywhere.", "The item is dropped.");
+            	GroundItem fireCape = new GroundItem("Fire cape", new Item(6570), Location.create(2438, 5169, 0));
+            	fireCape.setControllerName(player.getName());
+            	World.getWorld().createGroundItem(fireCape, player);
+            	player.getInterfaceState().setNextDialogueId(0,97);
+            	break;
+            case 234:
+                player.getActionSender().sendDialogue("TzHaar-Mej-Kah", DialogueType.NPC, 2618, FacialAnimation.LAUGH_3,
+                        "Haha, knew you'd quit!");
                 player.getInterfaceState().setNextDialogueId(0, 97);
                 break;
             case 97:

@@ -159,7 +159,8 @@ function objectOptionOne9356(player, object) {
 function objectOptionOne9357(player, object) {
 	if (object.getLocation().equals(Location.create(2412, 5118, 0))) {
 		if (player.getMinigame() != null) {
-			player.getMinigame().quit(player);
+			player.getMinigame().quit(player);		
+			DialogueManager.openDialogue(player, 230);
 		}
 	} else {
 		player.getActionSender().sendMessage("You can not leave");

@@ -1056,7 +1056,7 @@ public class Player extends Mob implements Persistable {
 
     @Override
     public String toString() {
-        return Player.class.getName() + " [name=" + name + " rights=" + rights + " members=" + members + " index=" + this.getIndex() + "]";
+        return Player.class.getName() + " [name=" + name + " rights=" + rights + " members=" + members + " fightCaves=" +fightCavesCompleted+ " index=" + this.getIndex() + "]";
     }
 
     /**
