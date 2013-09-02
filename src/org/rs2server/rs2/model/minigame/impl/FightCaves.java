@@ -13,6 +13,7 @@ import org.rs2server.rs2.model.Mob;
 import org.rs2server.rs2.model.WalkingQueue;
 import org.rs2server.rs2.model.World;
 import org.rs2server.rs2.model.boundary.Boundary;
+import org.rs2server.rs2.model.region.Region;
 import org.rs2server.rs2.tickable.Tickable;
 
 public class FightCaves extends AbstractMinigame {
@@ -116,7 +117,12 @@ public class FightCaves extends AbstractMinigame {
 		  	  {TZTOK_JAD}};;
 		  	 **/
 	private enum Wave {
-		ONE(0, new NPC[] { new NPC(NPCDefinition.forId(TZ_KIH), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) });
+		ONE(0, new NPC[] { new NPC(NPCDefinition.forId(TZ_KIH), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) }),
+		TWO(1, new NPC[] { new NPC(NPCDefinition.forId(TZ_KEK), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) }),
+		THREE(2, new NPC[] { new NPC(NPCDefinition.forId(TOK_XIL), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) }),
+		FOUR(3, new NPC[] { new NPC(NPCDefinition.forId(YT_MEJKOT ), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) }),
+		FIVE(4, new NPC[] { new NPC(NPCDefinition.forId(KET_ZEK ), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) }),
+		SIX(5, new NPC[] { new NPC(NPCDefinition.forId(TZTOK_JAD ), Location.create(2403, 5094, 0), null, null, WalkingQueue.EAST) });
 		
 		/**
 		 * The list of waves of npcs.
@@ -190,7 +196,7 @@ public class FightCaves extends AbstractMinigame {
 			//Special dialogue
 		}
 		for (NPC npc : waveNPCs) {
-			NPC newNPC = new NPC(npc.getDefinition(), Location.create(npc.getSpawnLocation().getX(), npc.getSpawnLocation().getY(), 0), null, null, npc.getDirection());
+			NPC newNPC = new NPC(npc.getDefinition(), Location.create(npc.getSpawnLocation().getX(), npc.getSpawnLocation().getY(), 0), Location.create(2372, 5063, 0), Location.create(2422, 5116, 0), npc.getDirection());
 			currentNPCs.add(newNPC);
 			World.getWorld().register(newNPC);
 			newNPC.getCombatState().startAttacking(participant.get(0), false); //In beta
@@ -250,9 +256,10 @@ public class FightCaves extends AbstractMinigame {
 					participant.get(0).setFightCavesCompleted();
 					end();
 					DialogueManager.openDialogue(participant.get(0), 231);
+					return; //finished
 					}
-					return;//finished
 				}
+			System.out.println("Spawning new wave");
 				spawnWave(wave);
 			}
 	}

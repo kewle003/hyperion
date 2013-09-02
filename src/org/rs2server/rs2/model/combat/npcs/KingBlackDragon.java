@@ -52,7 +52,7 @@ public class KingBlackDragon extends AbstractCombatAction {
     @Override
     public void hit(final Mob attacker, final Mob victim) {
         super.hit(attacker, victim);
-
+       // System.out.println("In hit king black");
         if (!attacker.isNPC()) {
             return; //this should be an NPC!
         }

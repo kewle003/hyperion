@@ -141,14 +141,17 @@ public final class CombatState {
      */
     public void startAttacking(Mob victim, boolean retaliating) {
         mob.setInteractingEntity(InteractionMode.ATTACK, victim);
-
         //prevents running to the mob if you are already in distance
         if (mob.getLocation().isWithinDistance(victim.getLocation(), mob.getActiveCombatAction().distance(mob))) {
+        	System.out.println("if 1");
             mob.getWalkingQueue().reset();
+
         }
         if (attackEvent == null || !attackEvent.isRunning()) {
+        	System.out.println("if 2");
             attackEvent = new AttackAction(mob, retaliating);
             if (mob.getActionSender() != null) {
+            	System.out.println("if 3");
                 mob.getActionSender().sendFollowing(victim, 1);
             }
             mob.getActionQueue().clearRemovableActions(); // cancels all actions

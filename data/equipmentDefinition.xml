@@ -1,5 +1,13 @@
 <map>
 	<entry>
+		<int>1837</int>
+		<equipmentDef>
+			<type>BOOTS</type>
+			<bonuses>
+			</bonuses>
+		</equipmentDef>
+	</entry>
+	<entry>
 		<int>1038</int>
 		<equipmentDef>
 			<type>HAT</type>

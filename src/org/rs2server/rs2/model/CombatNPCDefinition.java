@@ -92,15 +92,27 @@ public class CombatNPCDefinition {
 							if (!f.getName().endsWith(".class")) {
 								continue;
 							}
+							String requiredName = null;
+							//String tempName = null;
 							String fileName = packageName + f.getName().substring(0, f.getName().length() - 6);
-							String requiredName = packageName + NameUtils.formatName(NPCDefinition.forId(i).getName()).replace(" ", "");
+							if (NPCDefinition.forId(i).getName().contains("-")) {
+								requiredName = packageName + NameUtils.formatName(NPCDefinition.forId(i).getName()).replace("-", "");
+							} else {
+								requiredName = packageName + NameUtils.formatName(NPCDefinition.forId(i).getName()).replace(" ", "");
+							}
+							//tempName = NameUtils.formatName(NPCDefinition.forId(i).getName()).replace("-", "");
+						//	tempName.replace(" ", "");
+							//requiredName = packageName + tempName;
 							if (!fileName.equals(requiredName)) {
+								
 								continue;
 							}
+							//System.out.println(fileName + " == " +requiredName);
 							Class<?> fileClass = Class.forName(fileName);
 							if (fileClass.getSuperclass() != AbstractCombatAction.class) {
 								continue;
 							}
+							
 							AbstractCombatAction combatAction = (AbstractCombatAction) fileClass.newInstance();
 							def.setCombatAction(combatAction);
 						}
