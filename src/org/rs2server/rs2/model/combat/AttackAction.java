@@ -40,6 +40,7 @@ public class AttackAction extends Action {
 		return AnimationPolicy.RESET_NONE;
 	}
 
+	//Called as soon as the action event is set <kewley>
 	@Override
 	public void execute() {
 		final Mob mob = getMob();
@@ -47,7 +48,6 @@ public class AttackAction extends Action {
 			this.stop(); // they disconnected/got removed
 			return;
 		}
-
 		InteractionMode mode = mob.getInteractionMode();
 		Mob target = mob.getInteractingEntity();
 
@@ -73,13 +73,16 @@ public class AttackAction extends Action {
 		} else if(mob.getSprites().getSecondarySprite() != -1) {
 			movementDistance = 1;
 		}
+		
 		int distance = mob.getLocation().distanceToEntity(mob, target);
+		//Prevents a mob from meleeing across long distances <kewley>
 		if (distance > requiredDistance + movementDistance) {
 			return;
 		}
 
+		//This is called when they are actually next to each other if it is a melee only <kewley>
         if(distance <= requiredDistance) { //only reset walking queue when they are exactly in distance, and not still moving
-			mob.getWalkingQueue().reset();
+        	mob.getWalkingQueue().reset();
 		}
 
 		final CombatAction action = mob.getActiveCombatAction();

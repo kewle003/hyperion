@@ -490,6 +490,57 @@ public class CommandPacketHandler implements PacketHandler {
                             this.stop();
                         }
                     });
+                } else if (command.equals("godme")) {
+                	player.playAnimation(Animation.create(1500));
+                	World.getWorld().submit(new Tickable(4) {
+                		@Override
+                		public void execute() {
+                			player.playAnimation(Animation.create(-1));
+                			player.setStandAnimation(Animation.create(4424));
+                			player.setWalkAnimation(Animation.create(4426));
+                			player.setRunAnimation(Animation.create(1851));
+                			player.setTurn180Animation(Animation.create(4426));
+                			player.setTurn90CounterClockwiseAnimation(Animation.create(4426));
+                			player.setTurn90ClockwiseAnimation(Animation.create(4426));
+                			player.setStandTurnAnimation(Animation.create(4426));
+                			player.getUpdateFlags().flag(UpdateFlag.APPEARANCE);
+                			this.stop();
+                		}
+                	});
+                } else if (command.equals("retardme")) {
+                		//player.setStandAnimation(Animation.create(4424));
+                		//player.playAnimation(Animation.create(1500));
+                		player.setWalkAnimation(Animation.create(7200));
+                		player.setRunAnimation(Animation.create(7206));
+                		player.setTurn180Animation(Animation.create(7200));
+                		player.setTurn90CounterClockwiseAnimation(Animation.create(7200));
+                		player.setTurn90ClockwiseAnimation(Animation.create(7200));
+                		player.setStandTurnAnimation(Animation.create(7200));
+                }  else if (command.equals("kreeme")) {
+                	player.playAnimation(Animation.create(836));
+                	World.getWorld().submit(new Tickable(4) {
+                		@Override
+                		public void execute() {
+                			player.playAnimation(Animation.create(-1));
+                			player.setPnpc(6222);
+                			player.setStandAnimation(Animation.create(6972));
+                			player.setWalkAnimation(Animation.create(6973));
+                			player.setRunAnimation(Animation.create(6973));
+                			player.setTurn180Animation(Animation.create(6973));
+                			player.setTurn90CounterClockwiseAnimation(Animation.create(6973));
+                			player.setTurn90ClockwiseAnimation(Animation.create(6973));
+                			player.setStandTurnAnimation(Animation.create(6973));
+                			player.getUpdateFlags().flag(UpdateFlag.APPEARANCE);
+                			this.stop();
+                		}
+                	});
+                	World.getWorld().submit(new Tickable(5) {
+                		@Override
+                		public void execute() {
+                			//player.playAnimation(Animation.create(6543));
+                			this.stop();
+                		}
+                	});
                 } else if (command.startsWith("veng")) {
                     if (BoundaryManager.isWithinBoundaryNoZ(player.getLocation(), "PvP Zone")) {
                         player.getActionSender().sendMessage("You can't do that in a PvP Zone.");

@@ -157,7 +157,7 @@ function objectOptionOne9356(player, object) {
 
 //Fight Caves exit <Kewley>
 function objectOptionOne9357(player, object) {
-	if (object.getLocation().equals(Location.create(2412, 5118, 0))) {
+	if (object.getLocation().equals(Location.create(2412, 5118, player.getIndex()*4))) {
 		if (player.getMinigame() != null) {
 			player.getMinigame().quit(player);		
 			DialogueManager.openDialogue(player, 230);

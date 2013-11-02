@@ -16,15 +16,15 @@ import org.rs2server.rs2.model.combat.impl.AbstractCombatAction;
 import org.rs2server.rs2.tickable.Tickable;
 
 /**
- * This represents the TzTok-Jad combat actions
+ * This represents Ket-Zek combat actions. This is the lvl 300+ NPC.
  * @author mark
  *
  */
-public class TzTokJad extends AbstractCombatAction {
+public class KetZek extends AbstractCombatAction {	
 	/**
 	 * The singleton instance.
 	 */
-	private static final TzTokJad INSTANCE = new TzTokJad();
+	private static final KetZek INSTANCE = new KetZek();
 	
 	/**
 	 * Gets the singleton instance.
@@ -42,20 +42,19 @@ public class TzTokJad extends AbstractCombatAction {
 	/**
 	 * Default private constructor.
 	 */
-	public TzTokJad() {
+	public KetZek() {
 		
 	}
 	
 	private enum CombatStyle {
 		MELEE,
-		RANGE,
 		MAGIC
 	}
 	
 	@Override
 	public void hit(final Mob attacker, final Mob victim) {
 		super.hit(attacker, victim);
-		//System.out.println("In hit tztok");
+		System.out.println("In hit KetZek");
 		
 		if(!attacker.isNPC()) {
 			return; //this should be an NPC!
@@ -63,7 +62,7 @@ public class TzTokJad extends AbstractCombatAction {
 		
 		NPC npc = (NPC) attacker;
 		
-		CombatStyle style = null;
+		CombatStyle style = CombatStyle.MAGIC;
 		
 		int maxHit;
 		int damage;
@@ -73,7 +72,7 @@ public class TzTokJad extends AbstractCombatAction {
 		final int hit;
 
 		if(attacker.getLocation().isWithinDistance(attacker, victim, 1)) {
-			switch(random.nextInt(3)) {
+			switch(random.nextInt(2)) {
 			case 0:
 				style = CombatStyle.MELEE;	
 				//attacker.getActionSender().sendFollowing(victim, 1);
@@ -82,30 +81,12 @@ public class TzTokJad extends AbstractCombatAction {
 				style = CombatStyle.MAGIC;
 				//attacker.getActionSender().sendFollowing(victim, 1);
 				break;
-			case 2:
-				style = CombatStyle.RANGE;
-				//attacker.getActionSender().sendFollowing(victim, 1);
-				break;
-			}
-		} else {
-			//For when the player is not within attacking distance
-			switch(random.nextInt(2)) {
-			case 0:
-				style = CombatStyle.MAGIC;
-				//attacker.getActionSender().sendFollowing(victim, 1);
-				break;
-			case 1:
-				style = CombatStyle.RANGE;
-				//attacker.getActionSender().sendFollowing(victim, 1);
 			}
 		}
 		
 		switch(style) {
 		case MELEE:
 			Animation anim = attacker.getAttackAnimation();
-			if(random.nextInt(2) == 1) {
-				anim = Animation.create(2655);
-			}
 			attacker.playAnimation(anim);
 			
 			hitDelay = 1;
@@ -118,14 +99,15 @@ public class TzTokJad extends AbstractCombatAction {
 			}
 			hit = randomHit;
 			break;
+		default:
 		case MAGIC:
-			attacker.playAnimation(Animation.create(2656));
-			attacker.playGraphics(Graphic.create(1625, 0, 100));
-			attacker.playGraphics(Graphic.create(1626, 3, 100));
+			attacker.playAnimation(Animation.create(2647));
+			//attacker.playGraphics(Graphic.create(1625, 0, 100));
+			//attacker.playGraphics(Graphic.create(1626, 3, 100));
 
 			hitDelay = 2;
 			blockAnimation = false;
-			maxHit = 92;
+			maxHit = 42;
 			damage = damage(maxHit, attacker, victim, AttackType.MAGIC, Skills.MAGIC , Prayers.PROTECT_FROM_MAGIC, false, true);
 			randomHit = random.nextInt(damage < 1 ? 1 : damage + 1);
 			if(randomHit > victim.getSkills().getLevel(Skills.HITPOINTS)) {
@@ -133,25 +115,10 @@ public class TzTokJad extends AbstractCombatAction {
 			}
 			hit = randomHit;
 			break;
-		default:
-		case RANGE:
-			attacker.playAnimation(Animation.create(2652));
-			
-			hitDelay = 2;
-			blockAnimation = false;
-			maxHit = 92;
-			damage = damage(maxHit, attacker, victim, AttackType.RANGE, Skills.MAGIC, Prayers.PROTECT_FROM_MISSILES, false, true);
-			randomHit = random.nextInt(damage < 1 ? 1 : damage + 1);
-			if (randomHit > victim.getSkills().getLevel(Skills.HITPOINTS)) {
-				randomHit = victim.getSkills().getLevel(Skills.HITPOINTS);
-			}
-			victim.playGraphics(Graphic.create(451, 0, 100));
-			hit = randomHit;
-			break;
 		}		
 		
-		attacker.getCombatState().setAttackDelay(8);
-		attacker.getCombatState().setSpellDelay(8);
+		attacker.getCombatState().setAttackDelay(5);
+		attacker.getCombatState().setSpellDelay(5);
 		
 		World.getWorld().submit(new Tickable(hitDelay) {
 			@Override
@@ -166,9 +133,11 @@ public class TzTokJad extends AbstractCombatAction {
 		
 		victim.getActiveCombatAction().defend(attacker, victim, blockAnimation);
 	}
+
 	@Override
 	public int distance(Mob attacker) {
-		return 5;
+		// TODO Auto-generated method stub
+		return 10;
 	}
 
 }

@@ -148,10 +148,10 @@ public final class CombatState {
 
         }
         if (attackEvent == null || !attackEvent.isRunning()) {
-        	System.out.println("if 2");
+        	//System.out.println("if 2");
             attackEvent = new AttackAction(mob, retaliating);
             if (mob.getActionSender() != null) {
-            	System.out.println("if 3");
+            	//System.out.println("if 3");
                 mob.getActionSender().sendFollowing(victim, 1);
             }
             mob.getActionQueue().clearRemovableActions(); // cancels all actions

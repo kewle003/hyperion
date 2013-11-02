@@ -13,19 +13,11 @@ import org.rs2server.rs2.model.combat.CombatAction;
 import org.rs2server.rs2.model.combat.impl.AbstractCombatAction;
 import org.rs2server.rs2.tickable.Tickable;
 
-/**
- * This represents Tz-Kek combat action. I hope
- * to somehow get this NPC to spawn the two
- * smaller ones once it dies.
- * @author mark
- *
- */
-public class TzKek extends AbstractCombatAction {
-
+public class YtMejKot extends AbstractCombatAction {
 	/**
 	 * The singleton instance.
 	 */
-	private static final TzKek INSTANCE = new TzKek();
+	private static final YtMejKot INSTANCE = new YtMejKot();
 	
 	/**
 	 * Gets the singleton instance.
@@ -43,7 +35,7 @@ public class TzKek extends AbstractCombatAction {
 	/**
 	 * Default private constructor.
 	 */
-	public TzKek() {
+	public YtMejKot() {
 		
 	}
 	
@@ -54,6 +46,7 @@ public class TzKek extends AbstractCombatAction {
 	@Override
 	public void hit(final Mob attacker, final Mob victim) {
 		super.hit(attacker, victim);
+		//System.out.println("In hit ytmejkot");
 		
 		if(!attacker.isNPC()) {
 			return; //this should be an NPC!
@@ -69,7 +62,6 @@ public class TzKek extends AbstractCombatAction {
 		int hitDelay;
 		boolean blockAnimation;
 		final int hit;
-
 		
 		switch(style) {
 		default:
@@ -90,6 +82,7 @@ public class TzKek extends AbstractCombatAction {
 		}
 		
 		attacker.getCombatState().setAttackDelay(5);
+		attacker.getCombatState().setSpellDelay(5);
 		
 		World.getWorld().submit(new Tickable(hitDelay) {
 			@Override
@@ -104,7 +97,6 @@ public class TzKek extends AbstractCombatAction {
 		
 		victim.getActiveCombatAction().defend(attacker, victim, blockAnimation);
 	}
-	
 	@Override
 	public int distance(Mob attacker) {
 		return 1;

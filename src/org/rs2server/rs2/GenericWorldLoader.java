@@ -12,6 +12,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.rs2server.rs2.database.impl.LoginConnection;
 import org.rs2server.rs2.database.impl.LoginData;
+import org.rs2server.rs2.model.Animation;
 import org.rs2server.rs2.model.Player;
 import org.rs2server.rs2.model.PlayerDetails;
 import org.rs2server.rs2.model.World;

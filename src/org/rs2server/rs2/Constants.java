@@ -129,12 +129,12 @@ public class Constants {
      * 23 = Christmas presents & Santa
      * 24 = Killcount TODO: Useful in future
      */
-    public static int MESSAGE_OF_THE_WEEK_SCREEN = 23;
+    public static int MESSAGE_OF_THE_WEEK_SCREEN = 21;
 
     /**
      * The server's name.
      */
-    public static String SERVER_NAME = "ScapeRune";
+    public static String SERVER_NAME = "Kweeh?";
 
     /**
      * Bonuses as displayed on the equipment screen.

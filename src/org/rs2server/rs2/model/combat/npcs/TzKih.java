@@ -3,7 +3,6 @@ package org.rs2server.rs2.model.combat.npcs;
 import java.util.Random;
 
 import org.rs2server.rs2.model.Animation;
-import org.rs2server.rs2.model.Graphic;
 import org.rs2server.rs2.model.Hit;
 import org.rs2server.rs2.model.Mob;
 import org.rs2server.rs2.model.NPC;
@@ -11,10 +10,16 @@ import org.rs2server.rs2.model.Prayers;
 import org.rs2server.rs2.model.Skills;
 import org.rs2server.rs2.model.World;
 import org.rs2server.rs2.model.combat.CombatAction;
-import org.rs2server.rs2.model.combat.CombatState.AttackType;
 import org.rs2server.rs2.model.combat.impl.AbstractCombatAction;
 import org.rs2server.rs2.tickable.Tickable;
 
+/**
+ * This represents the Tz-Kih combat actions. This is
+ * the bat. We also see that if damage is done it
+ * will decrease the players prayer points by one.
+ * @author mark
+ *
+ */
 public class TzKih extends AbstractCombatAction {
 	/**
 	 * The singleton instance.

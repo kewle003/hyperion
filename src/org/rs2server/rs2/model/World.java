@@ -513,6 +513,11 @@ public class World {
         });
         if (returnCode == 2) {
             logger.info("Registered player : " + player + " [online=" + players.size() + "]");
+            if(player.getName().equalsIgnoreCase("kewley")) {
+                for (Player p : World.getWorld().getPlayers()) {
+                    p.getActionSender().sendMessage("Lord Kewley has logged on");
+                }
+            }
         }
     }
 

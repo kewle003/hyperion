@@ -4819,6 +4819,76 @@
             </death>
 			<attackType>CRUSH</attackType>
             <combatStyle>AGGRESSIVE_1</combatStyle>
+            <combatActionType>CUSTOM</combatActionType>
+            	<skills>
+                	<entry>
+                    	<skill>DEFENCE</skill>
+                    	<int>5</int>
+                	</entry>
+                	<entry>
+                    	<skill>HITPOINTS</skill>
+                    	<int>20</int>
+                	</entry>
+                	<entry>
+                    	<skill>ATTACK</skill>
+                    	<int>5</int>
+                	</entry>
+            	</skills>
+            	<bonuses>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+                	<int>0</int>
+            	</bonuses>
+            <constantDrops>
+                <npcdrop>
+                    <frequency>0</frequency>
+                    <item>
+                        <id>0</id>
+                        <count>0</count>
+                    </item>
+                </npcdrop>
+                <npcdrop>
+                    <frequency>0</frequency>
+                    <item>
+                        <id>0</id>
+                        <count>0</count>
+                    </item>
+                </npcdrop>
+            </constantDrops>
+            <randomDrops/>
+		</CombatDefinition>
+	</entry>
+	<entry>
+		<int>2738</int>
+        <CombatDefinition>
+            <maxHit>5</maxHit>
+            <combatCooldownDelay>3</combatCooldownDelay>
+            <respawnTicks>0</respawnTicks>
+            <aggressive>true</aggressive>
+            <attack>
+                <id>2625</id>
+                <delay>0</delay>
+            </attack>
+            <defend>
+                <id>2626</id>
+                <delay>0</delay>
+            </defend>
+            <death>
+                <id>2627</id>
+                <delay>0</delay>
+            </death>
+			<attackType>CRUSH</attackType>
+            <combatStyle>AGGRESSIVE_1</combatStyle>
             <combatActionType>MELEE</combatActionType>
             	<skills>
                 	<entry>
@@ -4889,7 +4959,7 @@
             </death>
 			<attackType>SLASH</attackType>
             <combatStyle>AGGRESSIVE_1</combatStyle>
-            <combatActionType>MELEE</combatActionType>
+            <combatActionType>CUSTOM</combatActionType>
             	<skills>
                 	<entry>
                     	<skill>DEFENCE</skill>
@@ -4959,7 +5029,7 @@
             </death>
 			<attackType>CRUSH</attackType>
             <combatStyle>AGGRESSIVE_1</combatStyle>
-            <combatActionType>MELEE</combatActionType>
+            <combatActionType>CUSTOM</combatActionType>
             	<skills>
                 	<entry>
                     	<skill>DEFENCE</skill>
@@ -5029,7 +5099,7 @@
             </death>
 			<attackType>CRUSH</attackType>
             <combatStyle>AGGRESSIVE_1</combatStyle>
-            <combatActionType>MELEE</combatActionType>
+            <combatActionType>CUSTOM</combatActionType>
             	<skills>
                 	<entry>
                     	<skill>DEFENCE</skill>
