@@ -4,6 +4,11 @@ import java.util.logging.Logger;
 
 import org.rs2server.rs2.model.DialogueManager;
 import org.rs2server.rs2.model.Player;
+import org.rs2server.rs2.model.skills.Crafting;
+import org.rs2server.rs2.model.skills.Crafting.Gem;
+import org.rs2server.rs2.model.skills.Crafting.CraftingItem;
+import org.rs2server.rs2.model.skills.Crafting.Hides;
+import org.rs2server.rs2.model.skills.Crafting.Staff;
 import org.rs2server.rs2.model.skills.Fletching;
 import org.rs2server.rs2.model.skills.Herblore;
 import org.rs2server.rs2.model.skills.Fletching.Log;
@@ -29,6 +34,7 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 	public void handle(Player player, Packet packet) {
 		if(packet.getOpcode() == 64) {
 			int interfaceId = packet.getInt2();
+			System.out.println("CloseInterfacePacketHandler: interfaceId[" + interfaceId + "]");
 			int childId = packet.getLEShort();
 			switch(interfaceId) {
 			case 7:
@@ -108,6 +114,48 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 							player.getActionQueue().addAction(new Herblore(player, productionCount, null, SecondaryIngredient.forId((Integer) player.getInterfaceAttribute("herblore_index")), HerbloreType.SECONDARY_INGREDIENT));
 							break;
 						}
+						player.getActionSender().removeChatboxInterface();
+					}
+				}
+				if (player.getInterfaceAttribute("crafting_gem") != null) {
+					int productionCount = -1;
+					switch(childId) {
+					case 6:
+						productionCount = 1;
+						break;
+					case 5:
+						productionCount = 5;
+						break;
+					case 9:
+						productionCount = 10;
+						break;
+					case 3:
+						productionCount = 28;
+						break;
+					}
+					if (productionCount != -1) {
+						player.getActionQueue().addAction(new Crafting(player, productionCount, (Gem) player.getInterfaceAttribute("crafting_gem"), CraftingItem.GEM));
+						player.getActionSender().removeChatboxInterface();
+					}
+				}
+				if (player.getInterfaceAttribute("crafting_staff") != null) {
+					int productionCount = -1;
+					switch(childId) {
+					case 6:
+						productionCount = 1;
+						break;
+					case 5:
+						productionCount = 5;
+						break;
+					case 9:
+						productionCount = 10;
+						break;
+					case 3:
+						productionCount = 28;
+						break;
+					}
+					if (productionCount != -1) {
+						player.getActionQueue().addAction(new Crafting(player, productionCount, (Staff) player.getInterfaceAttribute("crafting_staff"), CraftingItem.STAFF));
 						player.getActionSender().removeChatboxInterface();
 					}
 				}
@@ -204,6 +252,51 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 					}
 					if(productionCount != -1) {
 						player.getActionQueue().addAction(new Fletching(player, productionCount, logIndex, (Log) player.getInterfaceAttribute("fletching_log")));
+						player.getActionSender().removeChatboxInterface();
+					}
+				}
+				//TODO Production Count is failing
+				if (player.getInterfaceAttribute("crafting_hide") != null) {
+					int productionCount = -1;
+					int hideIndex = -1;
+					//System.out.println("Got here");
+					switch(childId) {
+					case 7:
+					case 6:
+					case 5:
+					case 4:
+						hideIndex = 0;
+						break;
+					case 11:
+					case 10:
+					case 9:
+					case 8:
+						hideIndex = 1;
+						break;
+					case 16:
+					case 15:
+					case 14:
+					case 13:
+						hideIndex = 2;
+						break;
+					}
+					switch(childId) {
+					case 6:
+						productionCount = 1;
+						break;
+					case 5:
+						productionCount = 5;
+						break;
+					case 9:
+						productionCount = 10;
+						break;
+					case 3:
+						productionCount = 28;
+						break;
+					}
+					if (productionCount != -1) {
+						System.out.println("Got here");
+						player.getActionQueue().addAction(new Crafting(player, productionCount, (Hides) player.getInterfaceAttribute("crafting_hide"),  hideIndex, CraftingItem.HIDE));
 						player.getActionSender().removeChatboxInterface();
 					}
 				}

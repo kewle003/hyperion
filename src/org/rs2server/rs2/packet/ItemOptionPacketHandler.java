@@ -13,6 +13,10 @@ import org.rs2server.rs2.model.container.Inventory;
 import org.rs2server.rs2.model.quests.impl.DwarfCannonQuest;
 import org.rs2server.rs2.model.quests.impl.WerewolfQuest;
 import org.rs2server.rs2.model.region.Tile;
+import org.rs2server.rs2.model.skills.Crafting;
+import org.rs2server.rs2.model.skills.Crafting.Gem;
+import org.rs2server.rs2.model.skills.Crafting.Staff;
+import org.rs2server.rs2.model.skills.Crafting.Hides;
 import org.rs2server.rs2.model.skills.Herblore;
 import org.rs2server.rs2.model.skills.Smithing;
 import org.rs2server.rs2.model.skills.Fletching.ArrowTip;
@@ -654,6 +658,80 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     }
                     if (player.getCombatState().isDead()) {
                         return;
+                    }
+                    //<Kewley> Are we using a chisel?
+                    if (usedItem.getId() == 1755 || withItem.getId() == 1755) {
+                    	System.out.println("ItemOnItem crafting");
+                    	Item gemItem = null;
+                    	//Find out which item was the uncutGem
+                    	if (usedItem.getId() == 1755) {
+                    		gemItem = withItem;
+                    	} else {
+                    		gemItem = usedItem;
+                    	}
+
+                    	Gem gem = Gem.forId(gemItem.getId());
+                    	if (gem != null) {
+                    		//Check this, not sure if it's 100%, I believe we define our own interface here
+                            player.getActionSender().sendInterfaceModel(309, 2, 130, gem.getUnCut());
+                            player.getActionSender().sendString(309, 6, "<br><br><br><br>" + gem.name());
+                            player.getActionSender().sendChatboxInterface(309);
+                            player.setInterfaceAttribute("crafting_gem", gem);
+                            return;
+                    	}
+                    }
+                    //<Kewley> are we crafting a staff?
+                    if (usedItem.getId() == 1379 || withItem.getId() == 1379) {
+                    	System.out.println("ItemOnItem staff");
+                    	
+                    	Item staffItem = null;
+                    	
+                    	//Find out which item was the orb
+                    	if (usedItem.getId() == 1379) {
+                    		staffItem = withItem;
+                    	} else {
+                    		staffItem = usedItem;
+                    	}
+                    	System.out.println("staffItem = " +staffItem.getId());
+                    	Staff staff = Staff.forId(staffItem.getId());
+                    	if (staff != null) {
+                    		System.out.println("Got here");
+                    		//Set up the interface
+                    		player.getActionSender().sendInterfaceModel(309, 2, 130, staff.getOrb());
+                    		player.getActionSender().sendString(309, 6, "<br><br><br><br>" + staff.name());
+                    		player.getActionSender().sendChatboxInterface(309);
+                    		//Let the DB know the name that we set up and the value of the Staff enum
+                    		player.setInterfaceAttribute("crafting_staff", staff);
+                    		return;
+                    	}
+                    }
+                    //TODO Get correct indexes on what to craft
+                    if (usedItem.getId() == 1733 || withItem.getId() == 1733) {
+                    	System.out.println("ItemOnItem hide");
+                    	
+                    	Item hideItem = null;
+                    	
+                    	if (usedItem.getId() == 1733) {
+                    		hideItem = withItem;
+                    	} else {
+                    		hideItem = usedItem;
+                    	}
+                    	
+                    	Hides hide = Hides.forId(hideItem.getId());
+                    	if (hide != null) {
+                    		interfaceId = 309;
+                    		if (hide.getProducts().length > 1) {
+                    			interfaceId = 301 + hide.getProducts().length;
+                    		}
+                    		int hideLength = hide.getProducts().length;
+                    		for (int i = 0; i < hideLength; i++) {
+                    			player.getActionSender().sendInterfaceModel(interfaceId, 2 + i, hide.getProducts()[i]);
+                    			player.getActionSender().sendString(interfaceId, (interfaceId - 296) + (i * 4), "<br><br><br><br>" + ItemDefinition.forId(hide.getProducts()[i]).getName());
+                    		}
+                    		player.getActionSender().sendChatboxInterface(interfaceId);
+                    		player.setInterfaceAttribute("crafting_hide", hide);
+                    		return;
+                    	}
                     }
                     if (usedItem.getId() == 946 || withItem.getId() == 946) {
                         Item logItem = null;

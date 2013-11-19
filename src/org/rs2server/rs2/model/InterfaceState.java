@@ -7,6 +7,9 @@ import org.rs2server.rs2.model.container.Bank;
 import org.rs2server.rs2.model.container.Container;
 import org.rs2server.rs2.model.container.ContainerListener;
 import org.rs2server.rs2.model.container.Trade;
+import org.rs2server.rs2.model.skills.Crafting;
+import org.rs2server.rs2.model.skills.Crafting.Gem;
+import org.rs2server.rs2.model.skills.Crafting.CraftingItem;
 import org.rs2server.rs2.model.skills.Fletching;
 import org.rs2server.rs2.model.skills.Herblore;
 import org.rs2server.rs2.model.skills.Fletching.Log;
@@ -273,6 +276,11 @@ public class InterfaceState {
 					}
 				}
 				break;
+			case 310:
+				if(player.getInterfaceAttribute("crafting_gem") != null) {
+					System.out.println("InterfaceState.java: Crafting");
+					player.getActionQueue().addAction(new Crafting(player, amount, (Gem) player.getInterfaceAttribute("crafting_gem"), CraftingItem.GEM));
+				}
 			}
 		} finally {
 			enterAmountInterfaceId = -1;
