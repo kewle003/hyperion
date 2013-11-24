@@ -80,9 +80,9 @@ public class LandscapeParser {
 						int type = objOtherInfo >> 2;
 						int rotation = objOtherInfo & 3;
 						
-						if(objId == 9357) {
-							System.out.println("type: "+type+" rotation: "+rotation+"");
-						}
+						//if(objId == 9357) {
+							//System.out.println("type: "+type+" rotation: "+rotation+"");
+						//}
 						
 						Location loc = Location.create(localX + x, localY + y, plane);
 //						if(loc.getZ() == 0)

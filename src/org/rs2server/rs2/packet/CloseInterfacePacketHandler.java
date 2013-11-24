@@ -34,8 +34,8 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 	public void handle(Player player, Packet packet) {
 		if(packet.getOpcode() == 64) {
 			int interfaceId = packet.getInt2();
-			System.out.println("CloseInterfacePacketHandler: interfaceId[" + interfaceId + "]");
 			int childId = packet.getLEShort();
+			System.out.println("CloseInterfacePacketHandler: interfaceId[" + interfaceId + "]");
 			switch(interfaceId) {
 			case 7:
 			case 64:
@@ -255,11 +255,9 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 						player.getActionSender().removeChatboxInterface();
 					}
 				}
-				//TODO Production Count is failing
-				if (player.getInterfaceAttribute("crafting_hide") != null) {
+				if (player.getInterfaceAttribute("crafting_hide") != null || player.getInterfaceAttribute("crafting_index") != null) {
 					int productionCount = -1;
 					int hideIndex = -1;
-					//System.out.println("Got here");
 					switch(childId) {
 					case 7:
 					case 6:
@@ -268,9 +266,10 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 						hideIndex = 0;
 						break;
 					case 11:
-					case 10:
 					case 9:
 					case 8:
+					case 10:
+					case 12:
 						hideIndex = 1;
 						break;
 					case 16:
@@ -281,21 +280,30 @@ public class CloseInterfacePacketHandler implements PacketHandler {
 						break;
 					}
 					switch(childId) {
-					case 6:
+					case 8:
+					case 12:
+					case 16:
 						productionCount = 1;
 						break;
-					case 5:
+					case 7:
+					case 11:
+					case 15:
 						productionCount = 5;
 						break;
-					case 9:
+					case 14:
+					case 10:
+					case 6:
 						productionCount = 10;
 						break;
-					case 3:
-						productionCount = 28;
+					case 13:
+					case 9:
+					case 5:
+						player.getInterfaceState().openEnterAmountInterface(310, hideIndex, -1);
+						player.setInterfaceAttribute("crafting_index", hideIndex);
+						player.setInterfaceAttribute("crafting_type", CraftingItem.HIDE);
 						break;
 					}
-					if (productionCount != -1) {
-						System.out.println("Got here");
+					if (productionCount != -1 && hideIndex != -1) {
 						player.getActionQueue().addAction(new Crafting(player, productionCount, (Hides) player.getInterfaceAttribute("crafting_hide"),  hideIndex, CraftingItem.HIDE));
 						player.getActionSender().removeChatboxInterface();
 					}

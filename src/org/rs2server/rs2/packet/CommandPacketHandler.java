@@ -236,6 +236,7 @@ public class CommandPacketHandler implements PacketHandler {
                             z = Integer.parseInt(args[3]);
                         }
                         player.setTeleportTarget(Location.create(x, y, z));
+                        player.playAnimation(Animation.create(1265, 1));
                     } else {
                         player.getActionSender().sendMessage("Syntax is ::tele [x] [y] [z].");
                     }
@@ -254,7 +255,30 @@ public class CommandPacketHandler implements PacketHandler {
                             System.exit(0);
                         }
                     });
-                } else if (command.startsWith("coords")) {
+                } else if (command.startsWith("bowtome")) {
+                	int lowerX = player.getLocation().getX() - 5;
+                	int lowerY = player.getLocation().getY() - 5;
+                	int upperX = player.getLocation().getX() + 5;
+                	int upperY = player.getLocation().getY() + 5;
+                	for (Player p : World.getWorld().getPlayers()) {
+                		if (p.equals(player)) {
+                			continue;
+                		}
+                		Location loc = p.getLocation();
+                		if (p.getMinigame() == null) {
+                			if (p.getCutScene() == null) {
+                				if (p.isInteracting() == false) {
+                					if ((lowerX <= loc.getX()) &&(loc.getX() <= upperX) && (lowerY <= loc.getY()) && (loc.getY() <= upperY)) {
+                						p.face(player.getLocation());
+                						p.playAnimation(Animation.create(1331));
+                						p.forceChat("All hail " +player.getName());
+                					}
+                				}
+                			}
+                		}
+                	}
+                }
+                else if (command.startsWith("coords")) {
                 	int x = player.getLocation().getX();
                 	int y = player.getLocation().getY();
                 	int z = player.getLocation().getZ();

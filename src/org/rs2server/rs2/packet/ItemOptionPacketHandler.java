@@ -661,8 +661,9 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     }
                     //<Kewley> Are we using a chisel?
                     if (usedItem.getId() == 1755 || withItem.getId() == 1755) {
-                    	System.out.println("ItemOnItem crafting");
+                    	
                     	Item gemItem = null;
+                    	
                     	//Find out which item was the uncutGem
                     	if (usedItem.getId() == 1755) {
                     		gemItem = withItem;
@@ -673,7 +674,7 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     	Gem gem = Gem.forId(gemItem.getId());
                     	if (gem != null) {
                     		//Check this, not sure if it's 100%, I believe we define our own interface here
-                            player.getActionSender().sendInterfaceModel(309, 2, 130, gem.getUnCut());
+                            player.getActionSender().sendInterfaceModel(309, 2, 130, gem.getInitialItem());
                             player.getActionSender().sendString(309, 6, "<br><br><br><br>" + gem.name());
                             player.getActionSender().sendChatboxInterface(309);
                             player.setInterfaceAttribute("crafting_gem", gem);
@@ -682,7 +683,6 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     }
                     //<Kewley> are we crafting a staff?
                     if (usedItem.getId() == 1379 || withItem.getId() == 1379) {
-                    	System.out.println("ItemOnItem staff");
                     	
                     	Item staffItem = null;
                     	
@@ -695,9 +695,8 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     	System.out.println("staffItem = " +staffItem.getId());
                     	Staff staff = Staff.forId(staffItem.getId());
                     	if (staff != null) {
-                    		System.out.println("Got here");
                     		//Set up the interface
-                    		player.getActionSender().sendInterfaceModel(309, 2, 130, staff.getOrb());
+                    		player.getActionSender().sendInterfaceModel(309, 2, 130, staff.getInitialItem());
                     		player.getActionSender().sendString(309, 6, "<br><br><br><br>" + staff.name());
                     		player.getActionSender().sendChatboxInterface(309);
                     		//Let the DB know the name that we set up and the value of the Staff enum
@@ -705,9 +704,8 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     		return;
                     	}
                     }
-                    //TODO Get correct indexes on what to craft
+                    //TODO Leather interface is FUCKED UP!
                     if (usedItem.getId() == 1733 || withItem.getId() == 1733) {
-                    	System.out.println("ItemOnItem hide");
                     	
                     	Item hideItem = null;
                     	
@@ -718,15 +716,21 @@ public class ItemOptionPacketHandler implements PacketHandler {
                     	}
                     	
                     	Hides hide = Hides.forId(hideItem.getId());
+                    	
                     	if (hide != null) {
                     		interfaceId = 309;
-                    		if (hide.getProducts().length > 1) {
-                    			interfaceId = 301 + hide.getProducts().length;
+                    		//Need to get the length to know how many objects we display on the interface
+                    		if (hide.getGeneratedItem().length > 1) {
+                    			interfaceId = 301 + hide.getGeneratedItem().length;
+                                //System.out.println("interfaceId: " +interfaceId+ "   hideLength: " +hide.getProducts().length);
                     		}
-                    		int hideLength = hide.getProducts().length;
+                    		int hideLength = hide.getGeneratedItem().length;
+                    		//Setup interface to have models and names corresponding to the models (vambs, body, chaps)
                     		for (int i = 0; i < hideLength; i++) {
-                    			player.getActionSender().sendInterfaceModel(interfaceId, 2 + i, hide.getProducts()[i]);
-                    			player.getActionSender().sendString(interfaceId, (interfaceId - 296) + (i * 4), "<br><br><br><br>" + ItemDefinition.forId(hide.getProducts()[i]).getName());
+                    			player.getActionSender().sendInterfaceModel(interfaceId, 2 + i, 160, hide.getGeneratedItem()[i]);
+                    			//System.out.println("sendInterfaceModel( " +interfaceId+", " +(2+i)+ ", " +hide.getProducts()[i]+ ")");
+                    			player.getActionSender().sendString(interfaceId, (interfaceId - 296) + (i * 4), "<br><br><br><br>" + ItemDefinition.forId(hide.getGeneratedItem()[i]).getName());
+                    			//System.out.println("sendString( " +interfaceId+ ", " +((interfaceId - 296) + (i*4))+ ", " +ItemDefinition.forId(hide.getProducts()[i]).getName()+ ")");
                     		}
                     		player.getActionSender().sendChatboxInterface(interfaceId);
                     		player.setInterfaceAttribute("crafting_hide", hide);
@@ -748,7 +752,9 @@ public class ItemOptionPacketHandler implements PacketHandler {
                             }
                             for (int i = 0; i < log.getItem().length; i++) {
                                 player.getActionSender().sendInterfaceModel(interfaceId, 2 + i, 160, log.getItem()[i]);
+                    			//System.out.println("sendInterfaceModel( " +interfaceId+", " +(2+i)+ ", " +log.getItem()[i]+ ")");
                                 player.getActionSender().sendString(interfaceId, (interfaceId - 296) + (i * 4), "<br><br><br><br>" + ItemDefinition.forId(log.getItem()[i]).getName());
+                    			//System.out.println("sendString( " +interfaceId+ ", " +((interfaceId - 296) + (i*4))+ ", " +ItemDefinition.forId(log.getItem()[i]).getName()+ ")");
                             }
                             player.getActionSender().sendChatboxInterface(interfaceId);
                             player.setInterfaceAttribute("fletching_log", log);

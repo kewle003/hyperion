@@ -9,15 +9,19 @@ import org.rs2server.rs2.model.Graphic;
 import org.rs2server.rs2.model.Item;
 import org.rs2server.rs2.model.ItemDefinition;
 import org.rs2server.rs2.model.Mob;
-import org.rs2server.rs2.model.Player;
 import org.rs2server.rs2.model.Skills;
 
-//TODO: ALOT, need to make this applicable for all crafting items not just Gems
+//TODO:
 //Gems - done
-//Hides - in progress
+//Hides - need leather interface and thread consumption
 //Staff - need animation then done
 //Jewelry - not even started
 public class Crafting extends ProductionAction{
+	
+	/**
+	 * A counter to keep track of how much thread we have used
+	 */
+	private int threadCount = 0;
 	
 	/**
 	 * Represents what armor we are crafting (vambs, chaps, body)
@@ -92,8 +96,10 @@ public class Crafting extends ProductionAction{
 	public Crafting(Mob mob, int productionCount, Hides hide, int hideIndex, CraftingItem type) {
 		super(mob);
 		this.productionCount = productionCount;
+		this.hideIndex = hideIndex;
 		this.hide = hide;
 		this.craftingItem = type;
+		this.threadCount = 0;
 	}
 	
 	public Crafting(Mob mob, int productionCount, Jewelry jewelry, CraftingItem type) {
@@ -169,7 +175,7 @@ public class Crafting extends ProductionAction{
 		 */
 		static {
 			for (Gem g : Gem.values()) {
-				gems.put(g.getUnCut(), g);
+				gems.put(g.getInitialItem(), g);
 			}
 		}
 		
@@ -177,7 +183,7 @@ public class Crafting extends ProductionAction{
 		 * The uncut id
 		 * @return uncut item id
 		 */
-		public int getUnCut() {
+		public int getInitialItem() {
 			return unCut;
 		}
 		
@@ -185,7 +191,7 @@ public class Crafting extends ProductionAction{
 		 * The cut gem
 		 * @return cut gem item id
 		 */
-		public int getProduct() {
+		public int getGeneratedItem() {
 			return product;
 		}
 		
@@ -274,7 +280,7 @@ public class Crafting extends ProductionAction{
 		 */
 		static {
 			for(Staff s : Staff.values()) {
-				staffs.put(s.getOrb(), s);
+				staffs.put(s.getInitialItem(), s);
 			}
 		}
 		
@@ -282,7 +288,7 @@ public class Crafting extends ProductionAction{
 		 * The item id of the orb
 		 * @return
 		 */
-		public int getOrb() {
+		public int getInitialItem() {
 			return orb;
 		}
 		
@@ -290,7 +296,7 @@ public class Crafting extends ProductionAction{
 		 * The battle staff item id
 		 * @return
 		 */
-		public int getReward() {
+		public int getGeneratedItem() {
 			return reward;
 		}
 		
@@ -326,13 +332,13 @@ public class Crafting extends ProductionAction{
 	 *
 	 */
 	public enum Hides {
-		GREEN_DRAGONHIDE(1745, new int[] {1135, 1065, 1099}, new int[] {3, 1, 2}, new int[] {63, 57, 60}, new double[] {186.0, 62.0, 124.0}),
-        BLUE_DRAGONHIDE(2505, new int[] {2499, 2487, 2493}, new int[] {3, 1, 2}, new int[] {71, 66, 68}, new double[] {210.0, 70.0, 140.0}),
-        RED_DRAGONHIDE(2507, new int[] {2501, 2489, 2495}, new int[] {3, 1, 2}, new int[] {77, 73, 75}, new double[] {234.0, 78.0, 124.0}),
-        BLACK_DRAGONHIDE(2509, new int[] {2503, 2491, 2497}, new int[] {3, 1, 2}, new int[] {84, 79, 82}, new double[] {258.0, 86.0, 172.0}),
-        SOFT_LEATHER(1741, new int[] {1129, 1063, 1095, 1167, 1061, 1059, 1169}, new int[] {1, 1, 1, 1, 1, 1, 1}, new int[] {14, 11, 18, 9, 7, 1, 38}, new double[] {25.0, 22.0, 27.0, 18.5, 16.3, 13.8, 37.0}),
-        HARD_LEATHER(1743, new int[] {1131}, new int[] {1}, new int[] {28}, new double[] {35.0}),
-        SNAKESKIN(6289, new int[] {6322, 6324, 6330, 6326, 6328}, new int[] {15, 12, 8, 5, 6}, new int[] {53, 51, 47, 48, 45}, new double[] {55.0, 50.0, 35.0, 45.0, 30.0});
+		GREEN_DRAGONHIDE(1745, 1249, new int[] {1135, 1065, 1099}, new int[] {3, 1, 2}, new int[] {63, 57, 60}, new double[] {186.0, 62.0, 124.0}),
+        BLUE_DRAGONHIDE(2505, 1249, new int[] {2499, 2487, 2493}, new int[] {3, 1, 2}, new int[] {71, 66, 68}, new double[] {210.0, 70.0, 140.0}),
+        RED_DRAGONHIDE(2507, 1249, new int[] {2501, 2489, 2495}, new int[] {3, 1, 2}, new int[] {77, 73, 75}, new double[] {234.0, 78.0, 124.0}),
+        BLACK_DRAGONHIDE(2509, 1249, new int[] {2503, 2491, 2497}, new int[] {3, 1, 2}, new int[] {84, 79, 82}, new double[] {258.0, 86.0, 172.0}),
+        SOFT_LEATHER(1741, 1249, new int[] {1129, 1063, 1095, 1167, 1061, 1059, 1169}, new int[] {1, 1, 1, 1, 1, 1, 1}, new int[] {14, 11, 18, 9, 7, 1, 38}, new double[] {25.0, 22.0, 27.0, 18.5, 16.3, 13.8, 37.0}),
+        HARD_LEATHER(1743, 1249, new int[] {1131}, new int[] {1}, new int[] {28}, new double[] {35.0}),
+        SNAKESKIN(6289, 1249, new int[] {6322, 6324, 6330, 6326, 6328}, new int[] {15, 12, 8, 5, 6}, new int[] {53, 51, 47, 48, 45}, new double[] {55.0, 50.0, 35.0, 45.0, 30.0});
         
 		/**
 		 * This represents the hide item id
@@ -360,12 +366,18 @@ public class Crafting extends ProductionAction{
 		private double[] experience;
 		
 		/**
+		 * The animation id
+		 */
+		private int animation;
+		
+		/**
 		 * The HashMap where we store our ENUMS
 		 */
 		private static Map<Integer, Hides> hides = new HashMap<Integer, Hides>();
 		
-		private Hides(int hide, int[] products, int[] amounts, int[] level, double[] experience) {
+		private Hides(int hide, int animation, int[] products, int[] amounts, int[] level, double[] experience) {
 			this.hide = hide;
+			this.animation = animation;
             this.products = products;
             this.amounts = amounts;
             this.level = level;
@@ -394,7 +406,7 @@ public class Crafting extends ProductionAction{
 		 * This will grab the hide we are crafting
 		 * @return
 		 */
-        public int getHide() {
+        public int getInitialItem() {
             return hide;
         }
         
@@ -403,7 +415,7 @@ public class Crafting extends ProductionAction{
          * @param index
          * @return
          */
-        public int[] getProducts() {
+        public int[] getGeneratedItem() {
             return products;
         }
         
@@ -421,7 +433,7 @@ public class Crafting extends ProductionAction{
          * @param index
          * @return
          */
-        public int[] getLevel() {
+        public int[] getLevelRequired() {
             return level;
         }
         
@@ -430,8 +442,16 @@ public class Crafting extends ProductionAction{
          * @param index
          * @return
          */
-        public double[] getExp() {
+        public double[] getExperience() {
             return experience;
+        }
+        
+        /**
+         * This method will return the animation for crafting a hide
+         * @return
+         */
+        public int getAnimation() {
+        	return animation;
         }
         
 	}
@@ -466,11 +486,11 @@ public class Crafting extends ProductionAction{
 	public Item[] getRewards() {
 		switch(craftingItem) {
 		case GEM:
-			return new Item[] {new Item(gem.getProduct(), 1) };
+			return new Item[] {new Item(gem.getGeneratedItem(), 1) };
 		case HIDE:
-			return new Item[] {new Item(hide.getProducts()[hideIndex], 1)};
+			return new Item[] {new Item(hide.getGeneratedItem()[hideIndex], 1)};
 		case STAFF:
-			return new Item[] {new Item(staff.getReward(), 1)};
+			return new Item[] {new Item(staff.getGeneratedItem(), 1)};
 		case JEWELRY:
 			return null;
 		}
@@ -481,11 +501,19 @@ public class Crafting extends ProductionAction{
 	public Item[] getConsumedItems() {
 		switch(craftingItem) {
 		case GEM:
-			return new Item[] { new Item(gem.getUnCut(), 1) };
+			return new Item[] { new Item(gem.getInitialItem(), 1) };
 		case HIDE:
-			return new Item[] {new Item(hide.getHide(), hide.getAmounts()[hideIndex])};
+			//if (this.threadCount == 4) {
+				
+				//this.threadCount = 0;
+				//return new Item[] {new Item(hide.getInitialItem(), hide.getAmounts()[hideIndex]), new Item(1734, 1)};
+			//} else {
+				//this.threadCount++;
+				//System.out.println("threadCount: " +this.threadCount);
+				return new Item[] {new Item(hide.getInitialItem(), hide.getAmounts()[hideIndex])};
+			//}
 		case STAFF:
-			return new Item[] {new Item(staff.getOrb(), 1), new Item(1379, 1)};
+			return new Item[] {new Item(staff.getInitialItem(), 1), new Item(1379, 1)};
 		case JEWELRY:
 			return null;
 		}
@@ -504,7 +532,7 @@ public class Crafting extends ProductionAction{
 		case GEM:
 			return gem.getLevelRequired();
 		case HIDE:
-			return hide.getLevel()[hideIndex];
+			return hide.getLevelRequired()[hideIndex];
 		case STAFF:
 			return staff.getLevelRequired();
 		case JEWELRY:
@@ -520,7 +548,7 @@ public class Crafting extends ProductionAction{
 		case GEM:
 			return gem.getExperience();
 		case HIDE:
-			return hide.getExp()[hideIndex];
+			return hide.getExperience()[hideIndex];
 		case STAFF:
 			return staff.getExperience();
 		case JEWELRY:
@@ -544,13 +572,13 @@ public class Crafting extends ProductionAction{
 		
 		switch(craftingItem) {
 		case GEM:
-			first = ItemDefinition.forId(gem.getUnCut()).getName().toLowerCase().charAt(0);
+			first = ItemDefinition.forId(gem.getInitialItem()).getName().toLowerCase().charAt(0);
 			break;
 		case HIDE:
-			first = ItemDefinition.forId(hide.getProducts()[hideIndex]).getName().toLowerCase().charAt(0);
+			first = ItemDefinition.forId(hide.getGeneratedItem()[hideIndex]).getName().toLowerCase().charAt(0);
 			break;
 		case STAFF:
-			first = ItemDefinition.forId(staff.getReward()).getName().toLowerCase().charAt(0);
+			first = ItemDefinition.forId(staff.getGeneratedItem()).getName().toLowerCase().charAt(0);
 			break;
 		case JEWELRY:
 			first = ' ';
@@ -563,13 +591,13 @@ public class Crafting extends ProductionAction{
 		
 		switch(craftingItem) {
 		case GEM:
-			retVal = "You successfully craft " + prefix + " " + ItemDefinition.forId(gem.getUnCut()).getName().toLowerCase() + ".";
+			retVal = "You successfully craft " + prefix + " " + ItemDefinition.forId(gem.getInitialItem()).getName().toLowerCase() + ".";
 			break;
 		case HIDE:
-			retVal = "You successfully craft " + prefix + " " + ItemDefinition.forId(hide.getProducts()[hideIndex]).getName().toLowerCase() + ".";
+			retVal = "You successfully craft " + prefix + " " + ItemDefinition.forId(hide.getGeneratedItem()[hideIndex]).getName().toLowerCase() + ".";
 			break;
 		case STAFF:
-			retVal = "You successfully craft " + prefix + " " + ItemDefinition.forId(staff.getReward()).getName().toLowerCase() + ".";
+			retVal = "You successfully craft " + prefix + " " + ItemDefinition.forId(staff.getGeneratedItem()).getName().toLowerCase() + ".";
 			break;
 		case JEWELRY:
 			retVal = "";
@@ -585,9 +613,9 @@ public class Crafting extends ProductionAction{
 		case GEM:
 			return Animation.create(gem.getAnimation());
 		case HIDE:
-			//return Animation.create(hide.getAnimation());
+			return Animation.create(hide.getAnimation());
 		case STAFF:
-			//return Animation.create(staff.getAnimation());
+			return Animation.create(staff.getAnimation());
 		case JEWELRY:
 		}
 		return null;

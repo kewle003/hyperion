@@ -9,6 +9,8 @@ import org.rs2server.rs2.model.container.ContainerListener;
 import org.rs2server.rs2.model.container.Trade;
 import org.rs2server.rs2.model.skills.Crafting;
 import org.rs2server.rs2.model.skills.Crafting.Gem;
+import org.rs2server.rs2.model.skills.Crafting.Hides;
+import org.rs2server.rs2.model.skills.Crafting.Staff;
 import org.rs2server.rs2.model.skills.Crafting.CraftingItem;
 import org.rs2server.rs2.model.skills.Fletching;
 import org.rs2server.rs2.model.skills.Herblore;
@@ -276,11 +278,22 @@ public class InterfaceState {
 					}
 				}
 				break;
+				//<Kewley> This is needed for when we enter the "enter an amount" interface
 			case 310:
-				if(player.getInterfaceAttribute("crafting_gem") != null) {
-					System.out.println("InterfaceState.java: Crafting");
-					player.getActionQueue().addAction(new Crafting(player, amount, (Gem) player.getInterfaceAttribute("crafting_gem"), CraftingItem.GEM));
+				if (player.getInterfaceAttribute("crafting_index") != null && player.getInterfaceAttribute("crafting_type") != null) {
+					switch((CraftingItem) player.getInterfaceAttribute("crafting_type")) {
+					case HIDE:
+						player.getActionQueue().addAction(new Crafting(player, amount, (Hides) player.getInterfaceAttribute("crafting_hide"), (Integer) player.getInterfaceAttribute("crafting_index"), CraftingItem.HIDE));
+						break;
+					case STAFF:
+						break;
+					case GEM:
+						break;
+					case JEWELRY:
+						break;
+					}
 				}
+				break;
 			}
 		} finally {
 			enterAmountInterfaceId = -1;

@@ -143,7 +143,7 @@ public final class CombatState {
         mob.setInteractingEntity(InteractionMode.ATTACK, victim);
         //prevents running to the mob if you are already in distance
         if (mob.getLocation().isWithinDistance(victim.getLocation(), mob.getActiveCombatAction().distance(mob))) {
-        	System.out.println("if 1");
+        	//System.out.println("if 1");
             mob.getWalkingQueue().reset();
 
         }
