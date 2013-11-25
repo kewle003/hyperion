@@ -13,6 +13,7 @@ import java.util.Map;
  * Date: 4/7/12
  * Time: 7:01 PM
  */
+//TODO: Need to add in NPC attacking player
 public class PickPocketing extends ProductionAction {
     /**
      * The Npc.
@@ -168,18 +169,20 @@ public class PickPocketing extends ProductionAction {
         if (cycleCount < 1) {
             cycleCount = 1;
         }
-        return (int) cycleCount;
+       return (int) cycleCount;
     }
 
 
     @Override
     public int getProductionCount() {
-        return pickPocket.getItems()[0].getCount();
+        //This originally added in AutoThieving
+        //return pickPocket.getItems()[0].getCount();
+        return 1;
     }
 
     @Override
     public Item[] getRewards() {
-        return new Item[]{pickPocket.getItems()[Misc.random(pickPocket.getItems().length)]};
+        return new Item[]{pickPocket.getItems()[Misc.random(pickPocket.getItems().length-1)]};
     }
 
     @Override

@@ -20,6 +20,7 @@ import org.rs2server.rs2.model.skills.Fletching;
 import org.rs2server.rs2.model.skills.PickPocketing;
 import org.rs2server.rs2.model.skills.PickPocketing.PickPocket;
 import org.rs2server.rs2.net.Packet;
+import org.rs2server.rs2.util.Misc;
 
 /**
  * Remove item options.
@@ -154,6 +155,12 @@ public class NPCOptionPacketHandler implements PacketHandler {
             player.setInteractingEntity(InteractionMode.TALK, npc);
 
             if (npc.getDefinition().getInteractionMenu()[2].startsWith("Pickpocket")) {
+                //TODO: Function that bases on player skill and a random int <Kewley>
+                if (Misc.random(20) < 10) {
+                    player.getActionSender().sendMessage("You failed to pickpocket the " +npc.getDefinition().getName());
+                    player.resetInteractingEntity();
+                    return;
+                }
                 player.getActionQueue().addAction(new PickPocketing(player, npc, PickPocket.forId(npc.getDefinition().getId())));
                 return;
             }
